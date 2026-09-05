@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NDN - Profile and Security Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed-variant": "#574500",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-surface": "#e2e2e2",
+                      "surface-tint": "#e9c349",
+                      "error-container": "#93000a",
+                      "primary-container": "#d4af37",
+                      "on-error": "#690005",
+                      "surface-container-high": "#2a2a2a",
+                      "outline": "#99907c",
+                      "inverse-surface": "#e2e2e2",
+                      "on-background": "#e2e2e2",
+                      "on-tertiary-fixed": "#1b1c1c",
+                      "background": "#131313",
+                      "tertiary-fixed": "#e4e2e1",
+                      "secondary-container": "#464747",
+                      "surface-dim": "#131313",
+                      "on-primary-container": "#554300",
+                      "tertiary": "#d0cdcd",
+                      "tertiary-fixed-dim": "#c8c6c6",
+                      "success-gold": "#C5A028",
+                      "surface-container-highest": "#353535",
+                      "secondary-fixed": "#e3e2e2",
+                      "inverse-on-surface": "#303030",
+                      "on-secondary": "#303031",
+                      "surface-container": "#1f1f1f",
+                      "on-primary": "#3c2f00",
+                      "secondary-fixed-dim": "#c7c6c6",
+                      "surface-elevation-2": "#1E1E1E",
+                      "surface": "#131313",
+                      "on-secondary-fixed-variant": "#464747",
+                      "on-tertiary": "#303030",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "on-error-container": "#ffdad6",
+                      "secondary": "#c7c6c6",
+                      "primary-fixed-dim": "#e9c349",
+                      "outline-variant": "#4d4635",
+                      "surface-container-low": "#1b1b1b",
+                      "surface-variant": "#353535",
+                      "error": "#ffb4ab",
+                      "surface-elevation-1": "#121212",
+                      "error-red": "#FF4444",
+                      "on-surface-variant": "#d0c5af",
+                      "primary-fixed": "#ffe088",
+                      "on-secondary-container": "#b5b5b5",
+                      "on-primary-fixed": "#241a00",
+                      "inverse-primary": "#735c00",
+                      "tertiary-container": "#b4b2b2",
+                      "high-contrast-text": "#FFFFFF",
+                      "on-tertiary-container": "#454545",
+                      "surface-bright": "#393939",
+                      "primary": "#f2ca50",
+                      "on-tertiary-fixed-variant": "#474747"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "base": "4px",
+                      "xl": "32px",
+                      "lg": "24px",
+                      "md": "16px",
+                      "margin-desktop": "40px",
+                      "xs": "8px",
+                      "sm": "12px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "display-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-sm": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-lg-mobile": [
+                              "Be Vietnam Pro"
+                      ],
+                      "label-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-sm": [
+                              "Work Sans"
+                      ],
+                      "body-lg": [
+                              "Work Sans"
+                      ],
+                      "label-md": [
+                              "JetBrains Mono"
+                      ],
+                      "body-md": [
+                              "Work Sans"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "14px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #d4af37;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #d4af37;
+        }
+        .toggle-checkbox:checked + .toggle-label:after {
+            transform: translateX(-100%);
+            border-color: white;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-surface top-0 sticky z-50 flat no shadows flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full border-b border-outline-variant">
+<button class="active:scale-95 transition-transform text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<div class="flex items-center gap-xs">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">تنظیمات و امنیت</h1>
+</div>
+<img alt="NDN Logo" class="h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX5kv9DwK2-gIzSLlNs8E-UDyY3Pb0sxdEmgXCCY-h-1Sq8sfA1TeYkwhn3uFQ1Ad4VGzinJ8Fq6-5sPMpfDXA47lzqopds4kbPL975Aw96MTfe0_C4WSjE55UGSioZGY1lYjhkpiitfzxj3zU7-NJat4M-zWagHyizDhnPWLApFPsjmFFt8KGjz5u9XhcMw26R5z4AjPWn3EpUCEdcOY5B2Zyx7wJlUOH-Ro7dC7cJErgN4HSmIj_FE-EPn7qwveSLY4"/>
+</header>
+<main class="max-w-3xl mx-auto px-margin-mobile py-lg flex flex-col gap-xl">
+<!-- Profile Header -->
+<section class="flex flex-col items-center justify-center gap-md py-lg bg-surface-elevation-1 border border-surface-variant rounded-xl w-full relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-b from-primary-container/10 to-transparent pointer-events-none"></div>
+<div class="relative w-24 h-24 rounded-full border-2 border-primary-container p-1 bg-surface">
+<img class="w-full h-full object-cover rounded-full" data-alt="A cinematic, high-contrast portrait of a professional individual in dark, sleek attire, softly illuminated by dramatic studio lighting. The background is pure black, creating a sense of exclusivity and prestige. The style is modern, sharp, and highly detailed, fitting an elite corporate profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCruVOTKM6pl_NA8CY_Tz7_K1DNitF4zOmSLQWz47-e1T2c0ukAsmskTrah9iGibb5Yi-IPULEY8kDO4Ub6V5hA7dLN7f39YbVogE3qp8uTZaBx47hqmaeYfNfG8MuVDniQJQTPDX3MSTY8Y2S4nSIqkyj5toT1hvjQVnmrK6TzzzMP2T2_X0WlvwRTD6MxTMCR1nq1nKQ00McvBvcp9abgqV4pXSmHrI-aobEkddEc_bh3YEYQ0A5CBg"/>
+<div class="absolute -bottom-2 right-1/2 transform translate-x-1/2 bg-surface border border-outline-variant rounded-full px-2 py-0.5 flex items-center gap-1 shadow-md">
+<span class="w-2 h-2 rounded-full bg-success-gold"></span>
+<span class="font-label-sm text-label-sm text-success-gold uppercase tracking-widest whitespace-nowrap">Elite</span>
+</div>
+</div>
+<div class="text-center mt-2 z-10">
+<h2 class="font-headline-md text-headline-md text-high-contrast-text mb-1">Alex Sterling</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">ID: NDN-7742</p>
+</div>
+</section>
+<!-- Personal Info Section -->
+<section class="flex flex-col gap-sm">
+<h3 class="font-headline-sm text-headline-sm text-primary px-2">اطلاعات شخصی</h3>
+<div class="bg-surface-elevation-1 border border-surface-variant rounded-xl overflow-hidden divide-y divide-surface-variant">
+<div class="flex items-center justify-between p-md hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="person">person</span>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">نام و نام خانوادگی</p>
+<p class="font-body-md text-body-md text-high-contrast-text mt-1">Alex Sterling</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity" data-icon="edit">edit</span>
+</div>
+<div class="flex items-center justify-between p-md hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="phone_iphone">phone_iphone</span>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">شماره موبایل</p>
+<p class="font-body-md text-body-md text-high-contrast-text mt-1" dir="ltr">+98 912 345 6789</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity" data-icon="edit">edit</span>
+</div>
+<div class="flex items-center justify-between p-md hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="home">home</span>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">آدرس ثبت شده</p>
+<p class="font-body-md text-body-md text-high-contrast-text mt-1">تهران، خیابان ولیعصر، مجتمع تجاری...</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity" data-icon="edit">edit</span>
+</div>
+</div>
+</section>
+<!-- Security Section -->
+<section class="flex flex-col gap-sm">
+<h3 class="font-headline-sm text-headline-sm text-primary px-2">امنیت</h3>
+<div class="bg-surface-elevation-1 border border-surface-variant rounded-xl overflow-hidden divide-y divide-surface-variant">
+<div class="flex items-center justify-between p-md hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="lock">lock</span>
+<p class="font-body-md text-body-md text-high-contrast-text">تغییر رمز عبور</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_left">chevron_left</span>
+</div>
+<div class="flex items-center justify-between p-md">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="fingerprint">fingerprint</span>
+<div>
+<p class="font-body-md text-body-md text-high-contrast-text">ورود با اثر انگشت</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">افزایش امنیت ورود به برنامه</p>
+</div>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer z-10 transition-transform duration-200 ease-in-out" id="biometric-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200 ease-in-out" for="biometric-toggle"></label>
+</div>
+</div>
+</div>
+</section>
+<!-- Notifications & Support -->
+<section class="flex flex-col gap-sm">
+<h3 class="font-headline-sm text-headline-sm text-primary px-2">تنظیمات برنامه</h3>
+<div class="bg-surface-elevation-1 border border-surface-variant rounded-xl overflow-hidden divide-y divide-surface-variant">
+<div class="flex items-center justify-between p-md">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+<p class="font-body-md text-body-md text-high-contrast-text">اعلان‌های سیستمی</p>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer z-10 transition-transform duration-200 ease-in-out" id="notif-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200 ease-in-out" for="notif-toggle"></label>
+</div>
+</div>
+<div class="flex items-center justify-between p-md hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="support_agent">support_agent</span>
+<p class="font-body-md text-body-md text-high-contrast-text">مرکز پشتیبانی</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_left">chevron_left</span>
+</div>
+<div class="flex items-center justify-between p-md hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="help_center">help_center</span>
+<p class="font-body-md text-body-md text-high-contrast-text">سوالات متداول</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_left">chevron_left</span>
+</div>
+</div>
+</section>
+<!-- Logout Action -->
+<section class="mt-md mb-xl">
+<button class="w-full flex items-center justify-center gap-sm p-md rounded-xl border border-error-red/30 bg-error-container/10 hover:bg-error-container/20 text-error-red transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-headline-sm text-headline-sm">خروج از حساب کاربری</span>
+</button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface-container-low border-t border-outline-variant shadow-lg flex justify-around items-center h-20 pb-safe px-4 fixed bottom-0 w-full z-50 md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-fixed-dim transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="package_2">package_2</span>
+<span class="font-label-sm text-label-sm">Shipments</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-fixed-dim transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span class="font-label-sm text-label-sm">Secure Scan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-fixed-dim transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="lock">lock</span>
+<span class="font-label-sm text-label-sm">Vault</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold active:scale-90 duration-150" href="#">
+<div class="bg-primary-container/20 p-1.5 rounded-full mb-0.5">
+<span class="material-symbols-outlined" data-icon="account_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</div>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<!-- SideNav for Desktop (Hidden on mobile) -->
+<aside class="bg-surface-container h-full w-80 rounded-r-xl shadow-md fixed left-0 top-0 z-40 hidden md:flex flex-col border-r border-surface-variant pt-20">
+<!-- Drawer Header Content (simplified for context) -->
+<div class="px-lg pb-lg mb-4 border-b border-surface-variant">
+<p class="font-headline-sm text-headline-sm text-success-gold mb-1">Alex Sterling</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Elite Member</p>
+</div>
+<nav class="flex-1 px-sm flex flex-col gap-2">
+<a class="bg-primary-container text-on-primary-container font-bold rounded-full flex items-center gap-md px-md py-3 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-body-md text-body-md">Personal Info</span>
+</a>
+<a class="text-on-surface-variant hover:bg-secondary-container rounded-full flex items-center gap-md px-md py-3 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="shield">shield</span>
+<span class="font-body-md text-body-md">Security</span>
+</a>
+<a class="text-on-surface-variant hover:bg-secondary-container rounded-full flex items-center gap-md px-md py-3 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-body-md text-body-md">Notifications</span>
+</a>
+<a class="text-on-surface-variant hover:bg-secondary-container rounded-full flex items-center gap-md px-md py-3 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-body-md text-body-md">Payment Methods</span>
+</a>
+<a class="text-on-surface-variant hover:bg-secondary-container rounded-full flex items-center gap-md px-md py-3 transition-all duration-200 ease-in-out mt-auto mb-md" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-body-md text-body-md">Help Support</span>
+</a>
+</nav>
+</aside>
+</body></html>

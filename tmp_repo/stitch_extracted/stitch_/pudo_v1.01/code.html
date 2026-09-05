@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>پنل سفیر PUDO</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error-red": "#FF4444",
+                      "on-primary-container": "#554300",
+                      "surface-tint": "#e9c349",
+                      "on-surface-variant": "#d0c5af",
+                      "on-tertiary": "#303030",
+                      "secondary-container": "#464747",
+                      "secondary": "#c7c6c6",
+                      "background": "#131313",
+                      "outline": "#99907c",
+                      "on-primary": "#3c2f00",
+                      "on-tertiary-fixed-variant": "#474747",
+                      "outline-variant": "#4d4635",
+                      "success-gold": "#C5A028",
+                      "on-primary-fixed": "#241a00",
+                      "tertiary-fixed": "#e4e2e1",
+                      "error": "#ffb4ab",
+                      "surface-dim": "#131313",
+                      "secondary-fixed-dim": "#c7c6c6",
+                      "surface-container-lowest": "#0e0e0e",
+                      "high-contrast-text": "#FFFFFF",
+                      "on-tertiary-fixed": "#1b1c1c",
+                      "surface-container-high": "#2a2a2a",
+                      "on-surface": "#e2e2e2",
+                      "primary-fixed-dim": "#e9c349",
+                      "surface-container": "#1f1f1f",
+                      "primary": "#f2ca50",
+                      "inverse-primary": "#735c00",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary": "#303031",
+                      "surface-elevation-1": "#121212",
+                      "surface": "#131313",
+                      "inverse-surface": "#e2e2e2",
+                      "on-tertiary-container": "#454545",
+                      "secondary-fixed": "#e3e2e2",
+                      "on-error": "#690005",
+                      "surface-bright": "#393939",
+                      "surface-elevation-2": "#1E1E1E",
+                      "surface-container-highest": "#353535",
+                      "on-background": "#e2e2e2",
+                      "surface-variant": "#353535",
+                      "error-container": "#93000a",
+                      "on-primary-fixed-variant": "#574500",
+                      "tertiary-container": "#b4b2b2",
+                      "tertiary": "#d0cdcd",
+                      "on-secondary-container": "#b5b5b5",
+                      "primary-container": "#d4af37",
+                      "primary-fixed": "#ffe088",
+                      "inverse-on-surface": "#303030",
+                      "on-secondary-fixed-variant": "#464747",
+                      "tertiary-fixed-dim": "#c8c6c6",
+                      "surface-container-low": "#1b1b1b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-desktop": "40px",
+                      "gutter": "16px",
+                      "lg": "24px",
+                      "base": "4px",
+                      "sm": "12px",
+                      "xl": "32px",
+                      "xs": "8px",
+                      "margin-mobile": "16px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Work Sans"],
+                      "headline-sm": ["Be Vietnam Pro"],
+                      "body-md": ["Work Sans"],
+                      "body-sm": ["Work Sans"],
+                      "label-sm": ["JetBrains Mono"],
+                      "headline-lg-mobile": ["Be Vietnam Pro"],
+                      "headline-md": ["Be Vietnam Pro"],
+                      "display-lg": ["Be Vietnam Pro"],
+                      "label-md": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body { font-family: 'Work Sans', sans-serif; }
+        .font-headline { font-family: 'Be Vietnam Pro', sans-serif; }
+        .font-mono-custom { font-family: 'JetBrains Mono', monospace; }
+        
+        .gold-glow { box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
+        .gold-border-focus:focus-within { border-color: #D4AF37; }
+        
+        /* Ambient Glow for primary buttons */
+        .ambient-glow-gold {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+        
+        /* Tonal Layers for depth */
+        .surface-level-1 {
+            background-color: #121212;
+            border: 1px solid #333333;
+        }
+        .surface-level-2 {
+            background-color: #1E1E1E;
+        }
+        
+        /* Vertical gold strip for active items */
+        .active-strip-right {
+            position: relative;
+        }
+        .active-strip-right::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #D4AF37;
+            border-top-right-radius: 0.25rem;
+            border-bottom-right-radius: 0.25rem;
+        }
+        
+        /* Subtle Gray tint for tracking IDs */
+        .tracking-id-bg {
+            background-color: rgba(128, 128, 128, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background text-high-contrast-text min-h-screen flex flex-col antialiased">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm dark:shadow-none flex flex-row-reverse justify-between items-center w-full px-margin-mobile py-xs max-w-7xl mx-auto z-50 sticky top-0">
+<div class="flex items-center gap-sm">
+<img alt="NDN Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFucRMP5RdtBiUWCe5596DPcKdcBDYnI7GqUDvwPWjQphOcKw2pzDzCWpCwtUYRsJPZD3iLX8RqkfLctJt3E6I0fdN3zhAG9iHd48Hb4HacJujBzL2W9kud8c_Mut4MPqvycxxTT0sQN7ym45at9PHNuZPS1ojl-5Gt-xRAEEwkpVTUjbwkf_VhIdvos98Fgq9edm-GEj2HuNdatd2ukEWGgNoOhuNWbh5fA__sX5CE-UJ-cImf9fVwROK2EJ-Srwt1G4"/>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim" data-field="header_title">پنل سفیر PUDO</h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors p-xs rounded-full active:scale-95 duration-100 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col gap-margin-mobile p-margin-mobile max-w-7xl mx-auto w-full pb-32">
+<!-- Today's Performance Card (Bento Grid Style) -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-margin-mobile">
+<div class="surface-level-1 rounded-xl p-lg flex flex-col gap-sm relative overflow-hidden group">
+<!-- Subtle gradient background -->
+<div class="absolute inset-0 bg-gradient-to-br from-surface-container-highest/20 to-transparent pointer-events-none"></div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">عملکرد امروز</h2>
+<div class="grid grid-cols-2 gap-sm mt-xs">
+<div class="flex flex-col gap-base">
+<span class="font-body-sm text-body-sm text-on-surface-variant">بسته‌های تحویلی</span>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-lg text-display-lg text-high-contrast-text" data-field="delivered_count">14</span>
+<span class="font-label-sm text-label-sm text-success-gold font-mono-custom">عدد</span>
+</div>
+</div>
+<div class="flex flex-col gap-base">
+<span class="font-body-sm text-body-sm text-on-surface-variant">درآمد فعلی</span>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-lg text-display-lg text-primary" data-field="current_earnings">420,000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono-custom">تومان</span>
+</div>
+</div>
+</div>
+<!-- Progress indicator -->
+<div class="w-full bg-[#333333] h-1 rounded-full mt-sm overflow-hidden">
+<div class="bg-success-gold h-full rounded-full w-[70%]" style="width: 70%;"></div>
+</div>
+</div>
+</section>
+<!-- Primary Action Button (Centered / Prominent) -->
+<section class="flex justify-center w-full my-sm">
+<button class="bg-primary-container text-black font-headline-sm text-headline-sm font-bold py-md px-xl rounded-xl flex items-center justify-center gap-sm ambient-glow-gold hover:bg-surface-tint transition-all active:scale-95 w-full md:w-auto min-w-[280px]">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner" style="font-variation-settings: 'FILL' 1;">qr_code_scanner</span>
+<span>اسکن و ثبت بسته جدید</span>
+</button>
+</section>
+<!-- Active Tasks List -->
+<section class="flex flex-col gap-sm">
+<div class="flex justify-between items-end mb-xs">
+<h3 class="font-headline-md text-headline-md text-on-surface">وظایف فعال</h3>
+<span class="font-label-md text-label-md text-primary font-mono-custom">۳ بسته</span>
+</div>
+<div class="flex flex-col gap-sm">
+<!-- Task Item 1 (Active) -->
+<div class="surface-level-1 rounded-lg p-md flex flex-col gap-sm active-strip-right group hover:surface-level-2 transition-colors cursor-pointer">
+<div class="flex justify-between items-center w-full">
+<div class="tracking-id-bg px-xs py-base rounded font-mono-custom font-label-md text-label-md text-on-surface" data-field="task_1_id" dir="ltr">
+                            NDN-8472-A9F1
+                        </div>
+<span class="font-label-sm text-label-sm text-primary px-sm py-base rounded-full bg-primary/10 border border-primary/20">در حال انتقال</span>
+</div>
+<div class="flex items-center gap-sm mt-xs">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="location_on">location_on</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">مقصد</span>
+<span class="font-body-md text-body-md text-on-surface" data-field="task_1_destination">هاب مرکزی شمال تهران</span>
+</div>
+</div>
+</div>
+<!-- Task Item 2 -->
+<div class="surface-level-1 rounded-lg p-md flex flex-col gap-sm hover:surface-level-2 transition-colors cursor-pointer">
+<div class="flex justify-between items-center w-full">
+<div class="tracking-id-bg px-xs py-base rounded font-mono-custom font-label-md text-label-md text-on-surface" data-field="task_2_id" dir="ltr">
+                            NDN-9123-B2C4
+                        </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant px-sm py-base rounded-full border border-[#333333]">آماده تحویل</span>
+</div>
+<div class="flex items-center gap-sm mt-xs">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="storefront">storefront</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">مقصد</span>
+<span class="font-body-md text-body-md text-on-surface" data-field="task_2_destination">فروشگاه هم‌محله - ونک</span>
+</div>
+</div>
+</div>
+<!-- Task Item 3 -->
+<div class="surface-level-1 rounded-lg p-md flex flex-col gap-sm hover:surface-level-2 transition-colors cursor-pointer">
+<div class="flex justify-between items-center w-full">
+<div class="tracking-id-bg px-xs py-base rounded font-mono-custom font-label-md text-label-md text-on-surface" data-field="task_3_id" dir="ltr">
+                            NDN-7741-X9Z8
+                        </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant px-sm py-base rounded-full border border-[#333333]">آماده تحویل</span>
+</div>
+<div class="flex items-center gap-sm mt-xs">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="storefront">storefront</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">مقصد</span>
+<span class="font-body-md text-body-md text-on-surface" data-field="task_3_destination">فروشگاه هم‌محله - تجریش</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface-container-lowest dark:bg-surface-container-lowest shadow-[0_-4px_6px_-1px_rgba(30,58,138,0.1)] fixed bottom-0 left-0 w-full z-50 flex flex-row-reverse justify-around items-center px-xs pb-sm pt-xs rounded-t-xl border-t border-[#333333] md:hidden">
+<!-- Active: Dashboard (پیش‌خوان) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-md py-base active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined font-label-md text-label-md" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-sm text-label-sm mt-1">پیش‌خوان</span>
+</a>
+<!-- Inactive: Packages (بسته‌ها) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-base hover:text-primary dark:hover:text-primary-fixed-dim active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined font-label-md text-label-md" data-icon="package_2">package_2</span>
+<span class="font-label-sm text-label-sm mt-1">بسته‌ها</span>
+</a>
+<!-- Inactive: Scan (اسکن) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-base hover:text-primary dark:hover:text-primary-fixed-dim active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined font-label-md text-label-md" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span class="font-label-sm text-label-sm mt-1">اسکن</span>
+</a>
+<!-- Inactive: Settings (تنظیمات) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-base hover:text-primary dark:hover:text-primary-fixed-dim active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined font-label-md text-label-md" data-icon="settings">settings</span>
+<span class="font-label-sm text-label-sm mt-1">تنظیمات</span>
+</a>
+</nav>
+<!-- Desktop Sidebar (Hidden on mobile) -->
+<aside class="hidden md:flex flex-col fixed right-0 top-16 bottom-0 w-64 bg-surface-container-lowest border-l border-[#333333] z-40 pt-lg pb-lg px-sm">
+<nav class="flex flex-col gap-sm">
+<a class="flex items-center gap-sm px-md py-sm bg-surface-container-high rounded-lg text-primary active-strip-right" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-headline-sm text-headline-sm">پیش‌خوان</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-variant hover:text-on-surface rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="package_2">package_2</span>
+<span class="font-body-md text-body-md">بسته‌ها</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-variant hover:text-on-surface rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span class="font-body-md text-body-md">اسکن</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-variant hover:text-on-surface rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">تنظیمات</span>
+</a>
+</nav>
+</aside>
+</body></html>

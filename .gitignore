@@ -1,0 +1,25 @@
+*.iml
+.gradle
+.kotlin
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+.env
+# NOTE: debug.keystore is intentionally NOT ignored. The debug build type in
+# app/build.gradle.kts points at ${rootDir}/debug.keystore explicitly, so without it
+# committed, `./gradlew assembleDebug` fails on every fresh checkout (including CI).
+# It holds no production secret (well-known androiddebugkey/android credentials) —
+# only my-upload-key.jks (release signing) should ever be kept out of version control.
+my-upload-key.jks
+*.jks
+!debug.keystore

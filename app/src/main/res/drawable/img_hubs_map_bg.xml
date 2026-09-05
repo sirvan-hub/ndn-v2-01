@@ -1,0 +1,51 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="400dp"
+    android:height="400dp"
+    android:viewportWidth="400"
+    android:viewportHeight="400">
+    <!-- Map Dark Canvas Background -->
+    <path
+        android:pathData="M0,0h400v400h-400z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="0"
+                android:startY="0"
+                android:endX="400"
+                android:endY="400"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#FF0F172A" />
+                <item android:offset="1.0" android:color="#FF1E293B" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <!-- Schematic Road Network Grid -->
+    <path
+        android:pathData="M0,80h400M0,160h400M0,240h400M0,320h400M80,0v400M160,0v400M240,0v400M320,0v400"
+        android:strokeWidth="1"
+        android:strokeColor="#18334155" />
+    <!-- Diagonal Highway Arteries -->
+    <path
+        android:pathData="M-20,120L420,280M-20,300L420,100M100,-20L300,420"
+        android:strokeWidth="2.5"
+        android:strokeColor="#2538BDF8"
+        android:strokeLineCap="round" />
+    <!-- Secondary City Avenues -->
+    <path
+        android:pathData="M40,200Q180,120 360,220M60,340Q200,380 340,300M120,40Q240,80 280,360"
+        android:strokeWidth="1.5"
+        android:strokeColor="#1E64748B" />
+    <!-- Network Hub Connection Rings -->
+    <path
+        android:pathData="M80,120m-20,0a20,20 0,1 1,40 0a20,20 0,1 1,-40 0"
+        android:strokeWidth="1"
+        android:strokeColor="#2038BDF8" />
+    <path
+        android:pathData="M260,180m-30,0a30,30 0,1 1,60 0a30,30 0,1 1,-60 0"
+        android:strokeWidth="1"
+        android:strokeColor="#2038BDF8" />
+    <path
+        android:pathData="M140,280m-24,0a24,24 0,1 1,48 0a24,24 0,1 1,-48 0"
+        android:strokeWidth="1"
+        android:strokeColor="#2038BDF8" />
+</vector>

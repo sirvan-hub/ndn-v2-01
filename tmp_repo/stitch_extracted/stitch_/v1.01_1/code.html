@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="fa" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>پنل مشتری - وضعیت بسته و پیگیری زنده</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#303030",
+                        "surface-variant": "#353535",
+                        "error-container": "#93000a",
+                        "primary-fixed": "#ffe088",
+                        "on-surface-variant": "#d0c5af",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-dim": "#131313",
+                        "on-background": "#e2e2e2",
+                        "on-tertiary-container": "#454545",
+                        "on-primary": "#3c2f00",
+                        "background": "#131313",
+                        "surface-elevation-1": "#121212",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "high-contrast-text": "#FFFFFF",
+                        "inverse-primary": "#735c00",
+                        "surface": "#131313",
+                        "tertiary-fixed": "#e4e2e1",
+                        "error-red": "#FF4444",
+                        "secondary": "#c7c6c6",
+                        "surface-container-highest": "#353535",
+                        "on-surface": "#e2e2e2",
+                        "surface-elevation-2": "#1E1E1E",
+                        "primary-fixed-dim": "#e9c349",
+                        "surface-container": "#1f1f1f",
+                        "success-gold": "#C5A028",
+                        "secondary-fixed": "#e3e2e2",
+                        "error": "#ffb4ab",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-tint": "#e9c349",
+                        "inverse-surface": "#e2e2e2",
+                        "surface-container-low": "#1b1b1b",
+                        "secondary-container": "#464747",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-error-container": "#ffdad6",
+                        "primary": "#f2ca50",
+                        "on-secondary-container": "#b5b5b5",
+                        "tertiary": "#d0cdcd",
+                        "on-primary-container": "#554300",
+                        "on-primary-fixed": "#241a00",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "primary-container": "#d4af37",
+                        "tertiary-container": "#b4b2b2",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#464747",
+                        "surface-bright": "#393939",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-primary-fixed-variant": "#574500",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "on-secondary": "#303031",
+                        "inverse-on-surface": "#303030",
+                        "outline-variant": "#4d4635",
+                        "outline": "#99907c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "sm": "12px",
+                        "xs": "8px",
+                        "xl": "32px",
+                        "gutter": "16px",
+                        "margin-mobile": "16px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Work Sans"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Work Sans"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "body-lg": ["Work Sans"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-sm": ["Be Vietnam Pro"],
+                        "label-md": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm dark:shadow-none bg-surface-container-low dark:bg-surface-container-high docked full-width top-0 z-50">
+<div class="flex flex-row-reverse justify-between items-center w-full px-margin-mobile py-xs max-w-7xl mx-auto z-50">
+<div class="flex items-center gap-xs"><div class="w-8 h-8 flex-shrink-0"><img alt="NDN Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCapZfy1rigtWTMSUBSzgmgHZKxU28w7F1t5piz3iXaaU55XOULuT_n7e7I9Ai4tEr32vFoNzty4C_orMRiDNhXI5jLTTn5vFee8Ik7F-piNUWH-t6IqwkkkwNw_-kCsVxJ3efjJCxrpJ1Js8vIkyGUg8xspDAastEtmtX1e4psgjIJ7cl3SeFhbUjpDMimlxjk5wFEReb-PBZwzjy7cEsfjKfDOntHCOyTzjD5s7JUuJbQ_vp2EkWZw3idX6-JSkOrIQE"/></div>
+<span class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim">سامانه پستی محله</span>
+</div>
+<div class="flex items-center gap-sm">
+<button class="text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors active:scale-95 duration-100 p-xs rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="notifications" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A macro shot of a sleek, abstract metallic sphere reflecting a minimalist, high-contrast dark environment with subtle gold undertones. The lighting is dramatic and focused, creating a sense of premium security and isolation. The aesthetic is strictly modern, professional, and impenetrable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbWU8oX_YCsGo1xHH_sTUPy0ZEfYo3pIQZFC1rPgtdvxyAxdPz0hMnLYqFBtT75hQ4DyF1JF569oEpcN_dABY-iJVPaP5VLetsndzfgqe7DXeMDMRUUTHv7eO3YwdH40gs-Oo1WWLaLDc4dveUT6qjcSo1wcu00hnNBBRkAN6X0AFxjE36jGCdL-0T9iN18KHYU1dPUOC1K-W3mYGehrz4TDEgGEcF3eGb4ZZruVuh62YeQE30-1dN4w"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="px-margin-mobile md:px-margin-desktop py-lg max-w-3xl mx-auto space-y-lg">
+<!-- Countdown Timer & Package ID Section -->
+<section class="flex flex-col items-center justify-center space-y-md">
+<div class="text-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-base">مدت زمان حضور در هاب</p>
+<div class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-widest" id="countdown-timer">02:35:01</div>
+</div>
+<div class="bg-surface-elevation-1 border border-surface-variant rounded-lg px-lg py-sm inline-flex items-center gap-sm">
+<span class="font-label-md text-label-md text-high-contrast-text" id="dev-package-id">IR-2025-4419</span>
+<button class="text-primary hover:text-primary-container transition-colors p-base">
+<span class="material-symbols-outlined text-body-md" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+</section>
+<!-- Detailed Status Card (Bento/Glassmorphism inspired) -->
+<section class="bg-surface-elevation-1 border border-surface-variant rounded-xl p-md space-y-md relative overflow-hidden group">
+<!-- Decorative Gold Strip indicating high priority -->
+<div class="absolute top-0 right-0 w-1 h-full bg-primary-container"></div>
+<div class="flex justify-between items-start">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-high-contrast-text mb-base">وضعیت فعلی</h2>
+<p class="font-body-sm text-body-sm text-primary flex items-center gap-xs">
+<span class="material-symbols-outlined text-body-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        منتظر دریافت شما
+                    </p>
+</div>
+<div class="text-left">
+<p class="font-label-sm text-label-sm text-on-surface-variant">فرستنده</p>
+<p class="font-body-sm text-body-sm text-on-surface" id="dev-sender-name">فروشگاه آنلاین (دیجی‌کالا)</p>
+</div>
+</div>
+<div class="h-px bg-surface-variant w-full"></div>
+<div class="grid grid-cols-2 gap-md">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">وزن</p>
+<p class="font-label-md text-label-md text-high-contrast-text" id="dev-package-weight">1.2kg</p>
+</div>
+<div class="text-left">
+<p class="font-label-sm text-label-sm text-on-surface-variant">هزینه قابل پرداخت</p>
+<p class="font-label-md text-label-md text-high-contrast-text">پرداخت شده</p>
+</div>
+</div>
+</section>
+<!-- Live Map Section -->
+<section class="space-y-sm">
+<h3 class="font-headline-sm text-headline-sm text-high-contrast-text">موقعیت هاب محله</h3>
+<div class="rounded-xl overflow-hidden border border-surface-variant relative h-48">
+<!-- Using placeholder for map as requested via data-location -->
+<img class="w-full h-full object-cover opacity-80 mix-blend-screen" data-alt="A stylized, high-contrast digital map interface showing a futuristic city grid at night. The map is primarily deep black and charcoal gray, with subtle glowing gold accent lines tracing optimal routes. A prominent gold diamond marker indicates a precise, secure drop-off location. The aesthetic is sleek, technical, and premium." data-location="Tehran" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS2OrHvC6T8GEvdQWTQ2Ci4J-NSS-AjHWqPiyuFPbYPYdIAjAD0AvJn8JRIK1yrzWBP9m1pPWupukaxF69A0-xzN54tzM9B2p7lL8SZUFWceh_I8UtIGiEOjJA4QncdmjB4Dho9e1LUVAcw-lQ5WVTJppJDYyPubvrDkWtBA0aSHYfLHWdwHxx4uJLBroRdCCfJAFkLMLtT8yw7AlWLO-k17MA7x1jMLWxRDrkPErM__WbeaYTtdfoLA"/>
+<div class="absolute bottom-md left-md right-md flex justify-between items-center bg-surface-elevation-2/90 backdrop-blur-sm border border-surface-variant p-sm rounded-lg">
+<div>
+<p class="font-body-sm text-body-sm text-high-contrast-text">هاب شماره ۴ - ونک</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate w-48">خیابان ولیعصر، کوچه لیدا، پلاک ۱۲</p>
+</div>
+<div class="relative group/menu">
+<button class="bg-surface-variant hover:bg-surface-container-highest text-on-surface px-sm py-xs rounded flex items-center gap-xs transition-colors border border-outline-variant active:scale-95">
+<span class="material-symbols-outlined text-body-sm" data-icon="navigation">navigation</span>
+<span class="font-label-sm text-label-sm">مسیریابی</span>
+</button>
+<!-- Map Provider Selection Menu (Bottom Sheet style for mobile, dropdown for desktop) -->
+<div class="absolute bottom-full left-0 mb-xs w-40 bg-surface-elevation-2 border border-surface-variant rounded-lg shadow-[0_0_15px_rgba(212,175,55,0.2)] overflow-hidden opacity-0 invisible group-hover/menu:opacity-100 group-hover/menu:visible transition-all duration-200 z-[60]">
+<div class="p-xs border-b border-surface-variant bg-surface-container-low">
+<p class="text-label-sm text-primary font-bold text-center">انتخاب نقشه‌بردار</p>
+</div>
+<button class="w-full flex items-center gap-sm px-sm py-sm hover:bg-surface-variant text-on-surface text-label-sm transition-colors border-b border-surface-variant/50">
+<span class="w-4 h-4 bg-white rounded-full flex-shrink-0 shadow-sm"></span>
+      Google Maps
+    </button>
+<button class="w-full flex items-center gap-sm px-sm py-sm hover:bg-surface-variant text-on-surface text-label-sm transition-colors border-b border-surface-variant/50">
+<span class="w-4 h-4 bg-[#33CCFF] rounded-full flex-shrink-0 shadow-sm"></span>
+      Waze
+    </button>
+<button class="w-full flex items-center gap-sm px-sm py-sm hover:bg-surface-variant text-on-surface text-label-sm transition-colors border-b border-surface-variant/50">
+<span class="w-4 h-4 bg-[#00BFA5] rounded-full flex-shrink-0 shadow-sm"></span>
+      Neshan (نشان)
+    </button>
+<button class="w-full flex items-center gap-sm px-sm py-sm hover:bg-surface-variant text-on-surface text-label-sm transition-colors">
+<span class="w-4 h-4 bg-[#FFD600] rounded-full flex-shrink-0 shadow-sm"></span>
+      Balad (بلد)
+    </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Action Area -->
+<section class="space-y-md pt-sm">
+<!-- Primary CTA -->
+<button class="w-full bg-primary-container text-on-primary font-headline-sm text-headline-sm font-bold py-md rounded-lg flex items-center justify-center gap-sm shadow-[0_0_15px_rgba(212,175,55,0.2)] active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span>
+                اسکن برای دریافت بسته
+            </button>
+<!-- Secondary Actions -->
+<div class="grid grid-cols-2 gap-sm">
+<button class="bg-surface-elevation-1 border border-surface-variant text-on-surface font-body-sm text-body-sm py-sm rounded flex items-center justify-center gap-xs hover:bg-surface-elevation-2 transition-colors">
+<span class="material-symbols-outlined text-body-sm" data-icon="history">history</span>
+                    تاریخچه بسته
+                </button>
+<button class="bg-surface-elevation-1 border border-surface-variant text-on-surface font-body-sm text-body-sm py-sm rounded flex items-center justify-center gap-xs hover:bg-surface-elevation-2 transition-colors">
+<span class="material-symbols-outlined text-body-sm" data-icon="support_agent">support_agent</span>
+                    تماس با هاب
+                </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface-container-lowest dark:bg-surface-container-lowest shadow-lg shadow-[0_-4px_6px_-1px_rgba(30,58,138,0.1)] docked full-width bottom-0 rounded-t-xl md:hidden">
+<div class="fixed bottom-0 left-0 w-full z-50 flex flex-row-reverse justify-around items-center px-xs pb-sm pt-xs bg-surface-container-lowest">
+<!-- پیش‌خوان (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-base hover:text-primary dark:hover:text-primary-fixed-dim active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined font-label-md text-label-md mb-base" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm text-label-sm">پیش‌خوان</span>
+</a>
+<!-- بسته‌ها (Active - Since this is a package status page, it aligns best with 'Packages' intent) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-md py-base active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined font-label-md text-label-md mb-base" data-icon="package_2" style="font-variation-settings: 'FILL' 1;">package_2</span>
+<span class="font-label-sm text-label-sm">بسته‌ها</span>
+</a>
+<!-- اسکن (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-base hover:text-primary dark:hover:text-primary-fixed-dim active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined font-label-md text-label-md mb-base" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span class="font-label-sm text-label-sm">اسکن</span>
+</a>
+<!-- تنظیمات (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-base hover:text-primary dark:hover:text-primary-fixed-dim active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined font-label-md text-label-md mb-base" data-icon="settings">settings</span>
+<span class="font-label-sm text-label-sm">تنظیمات</span>
+</a>
+</div>
+</nav>
+<!-- Dev-Ready Mock Script for Timer -->
+<script>
+        // Simple mock countdown timer script for demonstration
+        document.addEventListener('DOMContentLoaded', () => {
+            const timerElement = document.getElementById('countdown-timer');
+            let timeInSeconds = 2 * 3600 + 14 * 60 + 35; // 02:14:35
+
+            setInterval(() => {
+                timeInSeconds++;
+                const hours = Math.floor(timeInSeconds / 3600);
+                const minutes = Math.floor((timeInSeconds % 3600) / 60);
+                const seconds = timeInSeconds % 60;
+                
+                timerElement.textContent = 
+                    String(hours).padStart(2, '0') + ':' + 
+                    String(minutes).padStart(2, '0') + ':' + 
+                    String(seconds).padStart(2, '0');
+            }, 1000);
+        });
+    </script>
+</body></html>

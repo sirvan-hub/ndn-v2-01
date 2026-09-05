@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ثبت‌نام مامور پست - تکمیل مدارک - V1.01</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Work+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#735c00",
+                        "surface-container-low": "#1b1b1b",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "background": "#131313",
+                        "surface-tint": "#e9c349",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-primary-fixed-variant": "#574500",
+                        "primary": "#f2ca50",
+                        "primary-fixed": "#ffe088",
+                        "surface-container": "#1f1f1f",
+                        "primary-container": "#d4af37",
+                        "surface-bright": "#393939",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-primary-fixed": "#241a00",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "error-red": "#FF4444",
+                        "surface-elevation-2": "#1E1E1E",
+                        "on-surface-variant": "#d0c5af",
+                        "on-secondary-container": "#b5b5b5",
+                        "success-gold": "#C5A028",
+                        "inverse-surface": "#e2e2e2",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary": "#303030",
+                        "error": "#ffb4ab",
+                        "surface-dim": "#131313",
+                        "surface-variant": "#353535",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "tertiary-fixed": "#e4e2e1",
+                        "outline": "#99907c",
+                        "on-error": "#690005",
+                        "secondary-container": "#464747",
+                        "tertiary-container": "#b4b2b2",
+                        "on-primary-container": "#554300",
+                        "on-tertiary-container": "#454545",
+                        "tertiary": "#d0cdcd",
+                        "on-secondary": "#303031",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-on-surface": "#303030",
+                        "error-container": "#93000a",
+                        "high-contrast-text": "#FFFFFF",
+                        "surface": "#131313",
+                        "surface-elevation-1": "#121212",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container-highest": "#353535",
+                        "secondary-fixed": "#e3e2e2",
+                        "on-primary": "#3c2f00",
+                        "secondary": "#c7c6c6",
+                        "outline-variant": "#4d4635",
+                        "on-background": "#e2e2e2",
+                        "on-surface": "#e2e2e2",
+                        "on-secondary-fixed-variant": "#464747"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "40px",
+                        "xs": "8px",
+                        "xl": "32px",
+                        "gutter": "16px",
+                        "base": "4px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Work Sans"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "body-lg": ["Work Sans"],
+                        "headline-sm": ["Be Vietnam Pro"],
+                        "label-sm": ["JetBrains Mono"],
+                        "body-md": ["Work Sans"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "label-md": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Ambient Glow for Gold Buttons */
+        .gold-glow {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+        /* Custom File Input Styling */
+        input[type="file"] {
+            display: none;
+        }
+        .file-upload-label {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-sm min-h-screen flex flex-col">
+<!-- Top Navigation (Transactional/Linear flow, keeping it minimal) -->
+<header class="w-full top-0 sticky border-b border-outline-variant dark:border-outline-variant bg-background dark:bg-background flex justify-between items-center px-margin-mobile py-base z-10">
+<div class="flex items-center gap-2">
+<button class="text-primary dark:text-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+<span class="material-symbols-outlined font-headline-sm text-headline-sm-mobile">arrow_forward</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm-mobile font-bold text-primary dark:text-primary tracking-tight">ثبت‌نام سفیر جدید</h1>
+</div>
+<img alt="NDN Logo" class="h-8 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsjzfLTwVmAKHoVMtryjnkDJDwb5IF-dTEtk9-WI1zbCdo6rcoEXTChyiIH8NhT7iVS-iGbG7RO88sIAulDmAaSnjwxcx4gYDpx-D1iCE5pzABdypB4Bz2XLYl-w7PROZy6BorNr-KRuiXRoAAzoEKYJJBZByeP4nMvnKlqTD9NMLBrOFCmDc0kbYxCV-AH8rlqGqznxRh-fPkGJPQcpZ6NRW-x-biu_2sSt3JU3rbcHwlNa9535jRZWASDZa5ZT4O2f4"/>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow px-margin-mobile py-lg max-w-3xl mx-auto w-full flex flex-col gap-xl">
+<!-- Progress Tracker -->
+<section class="flex flex-col gap-sm">
+<div class="flex justify-between items-center font-label-md text-label-md text-on-surface-variant">
+<span>مرحله ۲ از ۲</span>
+<span>تکمیل مدارک</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="w-1/2 h-full bg-primary-container"></div>
+<div class="w-1/2 h-full bg-primary-container"></div>
+</div>
+</section>
+<!-- Form Section -->
+<form class="flex flex-col gap-lg flex-grow">
+<!-- Identity Info Cards (Bento style grid) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- National ID -->
+<div class="bg-surface-elevation-1 border border-outline-variant rounded-xl p-md flex flex-col gap-xs focus-within:border-primary-container transition-colors">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="national_id">کد ملی</label>
+<input class="bg-transparent border-none text-high-contrast-text font-label-md text-label-md p-0 focus:ring-0 focus:outline-none placeholder-surface-variant text-left" dir="ltr" id="national_id" placeholder="0000000000" type="text"/>
+</div>
+<!-- Bank Card -->
+<div class="bg-surface-elevation-1 border border-outline-variant rounded-xl p-md flex flex-col gap-xs focus-within:border-primary-container transition-colors">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="bank_card">شماره کارت بانکی</label>
+<input class="bg-transparent border-none text-high-contrast-text font-label-md text-label-md p-0 focus:ring-0 focus:outline-none placeholder-surface-variant text-left tracking-widest" dir="ltr" id="bank_card" placeholder="0000 0000 0000 0000" type="text"/>
+</div>
+</div>
+<!-- Upload Section -->
+<div class="flex flex-col gap-md mt-sm">
+<h2 class="font-headline-sm text-headline-sm text-high-contrast-text">مدارک هویتی</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- National ID Upload -->
+<label class="file-upload-label bg-surface-elevation-1 border border-dashed border-outline-variant rounded-xl p-lg flex flex-col items-center justify-center gap-sm hover:border-primary-container transition-colors min-h-[160px]">
+<span class="material-symbols-outlined text-primary-container text-[40px]">id_card</span>
+<span class="font-body-md text-body-md text-on-surface-variant text-center">آپلود تصویر کارت ملی</span>
+<span class="font-label-sm text-label-sm text-tertiary-container">فرمت‌های مجاز: JPG, PNG</span>
+<input accept="image/png, image/jpeg" type="file"/>
+</label>
+<!-- Profile Photo Upload -->
+<label class="file-upload-label bg-surface-elevation-1 border border-dashed border-outline-variant rounded-xl p-lg flex flex-col items-center justify-center gap-sm hover:border-primary-container transition-colors min-h-[160px]">
+<span class="material-symbols-outlined text-primary-container text-[40px]">account_circle</span>
+<span class="font-body-md text-body-md text-on-surface-variant text-center">آپلود عکس پرسنلی</span>
+<span class="font-label-sm text-label-sm text-tertiary-container">زمینه سفید، واضح</span>
+<input accept="image/png, image/jpeg" type="file"/>
+</label>
+</div>
+</div>
+<!-- Spacer to push button down if needed -->
+<div class="flex-grow"></div>
+<!-- Submit Button Area (Pinned to bottom on mobile, inline on desktop) -->
+<div class="mt-xl md:mt-0 pb-safe">
+<button class="w-full bg-primary-container text-[#000000] font-headline-sm text-headline-sm py-sm rounded-lg gold-glow hover:opacity-90 active:scale-95 transition-all flex justify-center items-center gap-xs" type="button">
+<span>تکمیل ثبت‌نام و بررسی مدارک</span>
+<span class="material-symbols-outlined">check_circle</span>
+</button>
+<p class="text-center font-label-sm text-label-sm text-on-surface-variant mt-sm">
+                    با ثبت‌نام، شما قوانین شبکه تحویل مطمئن محله (NDN) را می‌پذیرید.
+                </p>
+</div>
+</form>
+</main>
+</body></html>

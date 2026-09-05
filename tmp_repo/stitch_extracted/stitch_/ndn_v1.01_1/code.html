@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NDN - Biometric Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Work+Sans:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#d0c5af",
+                        "surface-dim": "#131313",
+                        "surface": "#131313",
+                        "error-red": "#FF4444",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed": "#e3e2e2",
+                        "primary": "#f2ca50",
+                        "surface-elevation-2": "#1E1E1E",
+                        "high-contrast-text": "#FFFFFF",
+                        "tertiary-fixed": "#e4e2e1",
+                        "outline": "#99907c",
+                        "secondary": "#c7c6c6",
+                        "surface-container-high": "#2a2a2a",
+                        "success-gold": "#C5A028",
+                        "surface-variant": "#353535",
+                        "on-primary-container": "#554300",
+                        "on-background": "#e2e2e2",
+                        "tertiary-container": "#b4b2b2",
+                        "surface-container-low": "#1b1b1b",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-elevation-1": "#121212",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "primary-fixed": "#ffe088",
+                        "on-surface": "#e2e2e2",
+                        "on-primary": "#3c2f00",
+                        "on-primary-fixed": "#241a00",
+                        "surface-container-highest": "#353535",
+                        "secondary-container": "#464747",
+                        "inverse-primary": "#735c00",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-error": "#690005",
+                        "on-tertiary": "#303030",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#4d4635",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "surface-bright": "#393939",
+                        "surface-container": "#1f1f1f",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-secondary-container": "#b5b5b5",
+                        "on-tertiary-container": "#454545",
+                        "on-secondary": "#303031",
+                        "on-secondary-fixed-variant": "#464747",
+                        "background": "#131313",
+                        "inverse-surface": "#e2e2e2",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "tertiary": "#d0cdcd",
+                        "on-primary-fixed-variant": "#574500",
+                        "surface-tint": "#e9c349",
+                        "inverse-on-surface": "#303030",
+                        "error-container": "#93000a",
+                        "primary-container": "#d4af37",
+                        "tertiary-fixed-dim": "#c8c6c6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "gutter": "16px",
+                        "margin-desktop": "40px",
+                        "base": "4px",
+                        "sm": "12px",
+                        "md": "16px",
+                        "xs": "8px",
+                        "margin-mobile": "16px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Be Vietnam Pro"],
+                        "label-md": ["JetBrains Mono"],
+                        "body-lg": ["Work Sans"],
+                        "body-sm": ["Work Sans"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "body-md": ["Work Sans"],
+                        "label-sm": ["JetBrains Mono"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "headline-sm": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .pulse-ring {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: .5; transform: scale(1.1); box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+        }
+        .biometric-glow {
+            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen flex flex-col items-center justify-center relative overflow-hidden">
+<!-- Header / Nav (Minimal) -->
+<header class="absolute top-0 w-full flex items-center justify-between p-margin-mobile z-10">
+<button aria-label="Back" class="text-on-surface-variant hover:text-primary transition-colors p-xs">
+<span class="material-symbols-outlined text-headline-sm">arrow_forward</span>
+</button>
+<div class="flex items-center justify-center">
+<img alt="NDN Logo" class="h-10 w-auto opacity-80" data-alt="NDN logistics high-end gold logo on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZQc9waLEbptMdXj1VGyW0HyUTmoY9jI7NSCIjScAQ0BqCLh3-JTfbaFjsAh5W9MjRdpv1sRgUZIqqQ-OxLRisxX6vF8FwmF9eSi7TBKUSyatGjmMrCHnLsHIgqtk9RCtAqcVcBUnCn6Wc2eybD4wLcB76UCQqxfbxZWReB6Up40rPvWcIkInuUf0tsZCFi_W3dy699RaenHaqJ5COTLTu0CLhLztHlXfARpIP2yJWuFz5uCJ5p2N9zUcZgMH4svStg5I"/>
+</div>
+<div class="w-8"></div> <!-- Spacer for balance -->
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 w-full max-w-md mx-auto flex flex-col items-center justify-center px-margin-mobile relative z-0">
+<!-- Fingerprint / Biometric Visual -->
+<div class="relative w-48 h-48 flex items-center justify-center mb-xl">
+<!-- Pulsing Rings -->
+<div class="absolute inset-0 rounded-full border border-primary/20 pulse-ring"></div>
+<div class="absolute inset-4 rounded-full border border-primary/40 pulse-ring" style="animation-delay: 0.5s;"></div>
+<!-- Fingerprint Icon Container -->
+<div class="relative z-10 bg-surface-elevation-1 rounded-full p-lg border border-outline-variant shadow-[0_0_30px_rgba(212,175,55,0.15)] biometric-glow flex items-center justify-center cursor-pointer transition-transform hover:scale-105 active:scale-95" data-field="biometric_sensor">
+<span class="material-symbols-outlined text-[80px] text-primary" style="font-variation-settings: 'FILL' 0, 'wght' 300;">
+                    fingerprint
+                </span>
+</div>
+</div>
+<!-- Status & Context -->
+<div class="text-center mb-xl space-y-sm">
+<h1 class="font-headline-sm text-headline-sm text-high-contrast-text" data-field="status_text">
+                لطفاً انگشت خود را روی سنسور قرار دهید
+            </h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-[280px] mx-auto">
+                امنیت شما اولویت ماست. ورود امن به پنل اختصاصی.
+            </p>
+</div>
+</main>
+<!-- Bottom Action Area (Simulated Bottom Sheet / Fallback) -->
+<div class="w-full max-w-md mx-auto px-margin-mobile pb-margin-mobile z-10 absolute bottom-0">
+<div class="bg-surface-elevation-1 border border-outline-variant rounded-t-xl rounded-b-xl p-md flex flex-col items-center gap-md shadow-[0_-8px_24px_rgba(0,0,0,0.5)]">
+<div class="w-12 h-1 bg-surface-variant rounded-full mb-xs"></div>
+<button class="w-full flex items-center justify-center gap-xs py-sm text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md border border-transparent hover:border-outline-variant rounded-lg">
+<span class="material-symbols-outlined text-label-md">password</span>
+                 ورود با رمز عبور
+             </button>
+</div>
+</div>
+</body></html>

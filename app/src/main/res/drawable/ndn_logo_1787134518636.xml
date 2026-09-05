@@ -1,0 +1,53 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Rounded Background Container -->
+    <path
+        android:pathData="M16,8h76c4.42,0 8,3.58 8,8v76c0,4.42 -3.58,8 -8,8H16c-4.42,0 -8,-3.58 -8,-8V16c0,-4.42 3.58,-8 8,-8z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="8"
+                android:startY="8"
+                android:endX="100"
+                android:endY="100"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#FF0F172A" />
+                <item android:offset="1.0" android:color="#FF1E293B" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <!-- Geometric Postal Shield / Box Accent -->
+    <path
+        android:pathData="M54,22L82,36v24c0,16.57 -11.94,32.09 -28,36 -16.06,-3.91 -28,-19.43 -28,-36V36L54,22z"
+        android:fillColor="#1538BDF8"
+        android:strokeWidth="2"
+        android:strokeColor="#FF38BDF8" />
+    <!-- Center Isometric Package Cube -->
+    <path
+        android:pathData="M54,34L72,44L54,54L36,44Z"
+        android:fillColor="#FF0284C7" />
+    <path
+        android:pathData="M36,44L54,54V74L36,64Z"
+        android:fillColor="#FF0369A1" />
+    <path
+        android:pathData="M54,54L72,44V64L54,74Z"
+        android:fillColor="#FF075985" />
+    <!-- Package Tape Highlight -->
+    <path
+        android:pathData="M51,35.5L69,45.5L66,47L48,37Z"
+        android:fillColor="#FFE0F2FE" />
+    <!-- Dynamic Speed Lines / Express Wings -->
+    <path
+        android:pathData="M24,42h8M20,50h12M24,58h8"
+        android:strokeWidth="2.5"
+        android:strokeColor="#FF38BDF8"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M76,42h8M76,50h12M76,58h8"
+        android:strokeWidth="2.5"
+        android:strokeColor="#FF38BDF8"
+        android:strokeLineCap="round" />
+</vector>

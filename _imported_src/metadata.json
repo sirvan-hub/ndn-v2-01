@@ -1,0 +1,6 @@
+{
+  "name": "سامانه پستی محله (NDN)",
+  "description": "شبکه تحویل مطمئن محله (NDN) - سامانه توزیع و دریافت محلی بسته‌ها با پنل‌های اختصاصی مشتری، مامور پست، مدیر هاب و یکپارچگی ابری با Google Drive",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

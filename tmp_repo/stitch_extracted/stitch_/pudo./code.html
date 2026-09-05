@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>پنل سفیر PUDO - گزارش عملکرد و درآمد</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#241a00",
+                        "on-tertiary": "#303030",
+                        "primary-fixed": "#ffe088",
+                        "outline": "#99907c",
+                        "on-secondary": "#303031",
+                        "on-background": "#e2e2e2",
+                        "surface-dim": "#131313",
+                        "high-contrast-text": "#FFFFFF",
+                        "background": "#131313",
+                        "on-primary": "#3c2f00",
+                        "secondary-container": "#464747",
+                        "primary-container": "#d4af37",
+                        "on-surface": "#e2e2e2",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary-fixed": "#e4e2e1",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "outline-variant": "#4d4635",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "primary": "#f2ca50",
+                        "surface-container-high": "#2a2a2a",
+                        "on-surface-variant": "#d0c5af",
+                        "surface-tint": "#e9c349",
+                        "error-red": "#FF4444",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "on-tertiary-container": "#454545",
+                        "surface-elevation-1": "#121212",
+                        "surface-variant": "#353535",
+                        "error-container": "#93000a",
+                        "on-primary-container": "#554300",
+                        "inverse-on-surface": "#303030",
+                        "secondary": "#c7c6c6",
+                        "surface": "#131313",
+                        "primary-fixed-dim": "#e9c349",
+                        "surface-container": "#1f1f1f",
+                        "tertiary-container": "#b4b2b2",
+                        "success-gold": "#C5A028",
+                        "surface-container-highest": "#353535",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "on-error": "#690005",
+                        "surface-container-low": "#1b1b1b",
+                        "on-primary-fixed-variant": "#574500",
+                        "inverse-primary": "#735c00",
+                        "surface-bright": "#393939",
+                        "on-secondary-fixed-variant": "#464747",
+                        "tertiary": "#d0cdcd",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface-elevation-2": "#1E1E1E",
+                        "on-error-container": "#ffdad6",
+                        "inverse-surface": "#e2e2e2",
+                        "secondary-fixed": "#e3e2e2",
+                        "on-secondary-container": "#b5b5b5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "40px",
+                        "md": "16px",
+                        "xs": "8px",
+                        "xl": "32px",
+                        "sm": "12px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["JetBrains Mono"],
+                        "body-lg": ["Work Sans"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "body-sm": ["Work Sans"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "body-md": ["Work Sans"],
+                        "label-md": ["JetBrains Mono"],
+                        "headline-sm": ["Be Vietnam Pro"],
+                        "display-lg": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Work Sans', sans-serif; }
+        .font-mono-tracking { font-family: 'JetBrains Mono', monospace; direction: ltr; display: inline-block; }
+        
+        /* Ambient Glow for Primary Actions */
+        .btn-glow {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+            transition: box-shadow 0.3s ease;
+        }
+        .btn-glow:hover, .btn-glow:active {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Chart Placeholder Styles */
+        .chart-area {
+            background: linear-gradient(180deg, rgba(212, 175, 55, 0.1) 0%, rgba(19, 19, 19, 0) 100%);
+            border-bottom: 2px solid #d4af37;
+            position: relative;
+        }
+        
+        .chart-point {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #d4af37;
+            border: 2px solid #131313;
+            border-radius: 50%;
+            transform: translate(-50%, 50%);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+        }
+
+        .chart-line {
+            position: absolute;
+            height: 2px;
+            background-color: #d4af37;
+            transform-origin: left center;
+        }
+
+        /* Hide scrollbar for lists */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col pb-24 selection:bg-primary-container selection:text-on-primary-container antialiased">
+<!-- TopAppBar (From JSON) -->
+<header class="w-full top-0 sticky z-40 border-b border-outline-variant bg-background flex justify-between items-center px-gutter h-16 shadow-none">
+<div class="flex items-center gap-4">
+<button class="text-primary hover:bg-surface-container-high transition-colors active:scale-95 transition-transform p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tighter m-0">NDN</h1>
+</div>
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant hover:bg-surface-container-high transition-colors active:scale-95 cursor-pointer">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A striking minimalist portrait of a courier in an urban setting. Dark obsidian background with dramatic, high-contrast rim lighting outlining the profile. Hints of premium gold reflections on metallic uniform details. The mood is secure, elite, and professional. 8k resolution, cinematic lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK54BYp1CSt4TjXhjFKujnSp2TMFMj7Wlu4MCmc2Q-9yOe2jGk9v1VC5j8Q5rpO-03njDEvtRylzHiYpVcpRiIiXQzhXIN-mkRAMVDcz9BW_lb2OHj80w5088iL6uNw4Eobm0NIrFDiuQKLJACYUcBFE1bGJmBDeJ0aE-9WnE3gwo5C_2J_5K7GYY5wDgyQD-FjR0bSutTYXvYKVZ9lAJ5MhGasPMuRczlL1k5LDCEthXp9OpLrqkOPA"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow container mx-auto px-margin-mobile md:px-margin-desktop py-lg max-w-5xl space-y-lg">
+<!-- Page Title -->
+<div>
+<h2 class="font-headline-md text-headline-md text-high-contrast-text mb-1">گزارش عملکرد و درآمد</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">پنل اختصاصی سفیر PUDO</p>
+</div>
+<!-- Bento Grid: Summary & Metrics -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Total Earnings Card (Gold Highlight) -->
+<div class="bg-surface-elevation-1 border border-outline-variant rounded-xl p-lg relative overflow-hidden flex flex-col justify-between min-h-[160px] group hover:bg-surface-elevation-2 transition-colors duration-300">
+<!-- Gold Accent Strip -->
+<div class="absolute right-0 top-0 bottom-0 w-1 bg-primary-container"></div>
+<div class="flex justify-between items-start z-10">
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-sm" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+                        درآمد کل (سهم ۳۰٪)
+                    </span>
+<span class="inline-flex items-center gap-1 bg-surface-container text-success-gold font-label-sm text-label-sm px-2 py-1 rounded border border-outline-variant">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                        +۱۵٪
+                    </span>
+</div>
+<div class="mt-4 z-10">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary-container">۱۸,۹۰۰,۰۰۰</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">تومان</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1 opacity-70">ماه جاری (تا کنون)</p>
+</div>
+<!-- Decorative background pattern -->
+<div class="absolute -left-10 -bottom-10 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-9xl text-primary-container" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+</div>
+<!-- Secondary Metrics Container -->
+<div class="grid grid-cols-2 gap-md">
+<!-- Successful Deliveries -->
+<div class="bg-surface-elevation-1 border border-outline-variant rounded-xl p-md flex flex-col justify-center items-center text-center hover:bg-surface-elevation-2 transition-colors duration-300">
+<span class="material-symbols-outlined text-on-surface-variant mb-2 text-3xl" style="font-variation-settings: 'FILL' 0;">local_shipping</span>
+<span class="font-headline-md text-headline-md text-high-contrast-text">۴۸۲</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">تحویل‌های موفق</span>
+</div>
+<!-- Pending Settlement -->
+<div class="bg-surface-elevation-1 border border-outline-variant rounded-xl p-md flex flex-col justify-center items-center text-center hover:bg-surface-elevation-2 transition-colors duration-300 relative">
+<span class="material-symbols-outlined text-primary mb-2 text-3xl" style="font-variation-settings: 'FILL' 0;">hourglass_empty</span>
+<span class="font-headline-sm text-headline-sm text-high-contrast-text">۵,۲۰۰,۰۰۰</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">در انتظار تسویه (تومان)</span>
+</div>
+</div>
+</section>
+<!-- Chart Section -->
+<section class="bg-surface-elevation-1 border border-outline-variant rounded-xl p-md md:p-lg">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-sm text-headline-sm text-high-contrast-text">روند درآمد هفتگی</h3>
+<div class="flex gap-2">
+<button class="px-3 py-1 bg-surface-container rounded font-label-sm text-label-sm text-primary-container border border-primary-container">هفته</button>
+<button class="px-3 py-1 bg-transparent rounded font-label-sm text-label-sm text-on-surface-variant border border-outline-variant hover:text-high-contrast-text">ماه</button>
+</div>
+</div>
+<!-- Simple CSS Chart Visualizer for high-end feel -->
+<div class="w-full h-48 relative border-l border-b border-outline-variant ml-4 mb-4 mt-8 flex items-end">
+<!-- Y-Axis Labels -->
+<div class="absolute -right-8 top-0 h-full flex flex-col justify-between text-[10px] font-label-sm text-on-surface-variant text-left opacity-70">
+<span>۳m</span>
+<span>۲m</span>
+<span>۱m</span>
+<span>۰</span>
+</div>
+<!-- X-Axis Labels -->
+<div class="absolute -bottom-6 left-0 w-full flex justify-between text-[10px] font-label-sm text-on-surface-variant px-2 opacity-70">
+<span>ش</span>
+<span>ی</span>
+<span>د</span>
+<span>س</span>
+<span>چ</span>
+<span>پ</span>
+<span>ج</span>
+</div>
+<!-- Grid lines -->
+<div class="absolute inset-0 w-full h-full flex flex-col justify-between pointer-events-none">
+<div class="w-full h-[1px] bg-outline-variant opacity-20"></div>
+<div class="w-full h-[1px] bg-outline-variant opacity-20"></div>
+<div class="w-full h-[1px] bg-outline-variant opacity-20"></div>
+<div class="w-full h-[1px] bg-outline-variant opacity-20"></div>
+</div>
+<!-- The "Chart Area" -->
+<div class="w-full h-[60%] chart-area rounded-tr-sm"></div>
+<!-- Chart Data Points (Simulated) -->
+<!-- Point 1 (Sat) -->
+<div class="chart-point" style="bottom: 30%; left: 5%;"></div>
+<!-- Line 1-2 -->
+<div class="chart-line" style="bottom: 30%; left: 5%; width: 16%; transform: rotate(15deg);"></div>
+<!-- Point 2 (Sun) -->
+<div class="chart-point" style="bottom: 45%; left: 21%;"></div>
+<!-- Line 2-3 -->
+<div class="chart-line" style="bottom: 45%; left: 21%; width: 16%; transform: rotate(-5deg);"></div>
+<!-- Point 3 (Mon) -->
+<div class="chart-point" style="bottom: 40%; left: 37%;"></div>
+<!-- Line 3-4 -->
+<div class="chart-line" style="bottom: 40%; left: 37%; width: 16%; transform: rotate(25deg);"></div>
+<!-- Point 4 (Tue) -->
+<div class="chart-point" style="bottom: 60%; left: 53%;"></div>
+<!-- Line 4-5 -->
+<div class="chart-line" style="bottom: 60%; left: 53%; width: 16%; transform: rotate(-10deg);"></div>
+<!-- Point 5 (Wed) -->
+<div class="chart-point" style="bottom: 50%; left: 69%;"></div>
+<!-- Line 5-6 -->
+<div class="chart-line" style="bottom: 50%; left: 69%; width: 16%; transform: rotate(35deg);"></div>
+<!-- Point 6 (Thu) -->
+<div class="chart-point" style="bottom: 85%; left: 85%;"></div>
+<!-- Line 6-7 -->
+<div class="chart-line" style="bottom: 85%; left: 85%; width: 12%; transform: rotate(-25deg);"></div>
+<!-- Point 7 (Fri) -->
+<div class="chart-point" style="bottom: 60%; left: 97%;"></div>
+</div>
+</section>
+<!-- Recent Transactions List -->
+<section class="space-y-sm pb-10">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline-sm text-headline-sm text-high-contrast-text">تراکنش‌های اخیر</h3>
+<button class="font-label-sm text-label-sm text-primary hover:text-primary-container transition-colors flex items-center gap-1">
+                    مشاهده همه
+                    <span class="material-symbols-outlined text-[16px] rtl:rotate-180" style="font-variation-settings: 'FILL' 0;">chevron_right</span>
+</button>
+</div>
+<div class="space-y-2">
+<!-- Transaction Item 1 -->
+<div class="bg-surface-elevation-1 border border-outline-variant rounded-lg p-4 flex justify-between items-center hover:bg-surface-elevation-2 transition-colors group cursor-default">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center border border-outline-variant group-hover:border-primary-container transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary-container" style="font-variation-settings: 'FILL' 0;">check_circle</span>
+</div>
+<div>
+<div class="font-mono-tracking font-label-md text-label-md text-high-contrast-text tracking-widest bg-surface-variant px-1 rounded inline-block mb-1">IR-2025-C912</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">تحویل موفق • امروز ۱۴:۳۰</div>
+</div>
+</div>
+<div class="text-left">
+<div class="font-body-md text-body-md text-primary-container font-semibold">+ ۸۵,۰۰۰ <span class="text-xs font-normal">تومان</span></div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">سهم ۳۰٪</div>
+</div>
+</div>
+<!-- Transaction Item 2 -->
+<div class="bg-surface-elevation-1 border border-outline-variant rounded-lg p-4 flex justify-between items-center hover:bg-surface-elevation-2 transition-colors group cursor-default">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center border border-outline-variant group-hover:border-primary-container transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary-container" style="font-variation-settings: 'FILL' 0;">check_circle</span>
+</div>
+<div>
+<div class="font-mono-tracking font-label-md text-label-md text-high-contrast-text tracking-widest bg-surface-variant px-1 rounded inline-block mb-1">IR-2025-A441</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">تحویل موفق • دیروز ۱۸:۱۵</div>
+</div>
+</div>
+<div class="text-left">
+<div class="font-body-md text-body-md text-primary-container font-semibold">+ ۱۲۰,۰۰۰ <span class="text-xs font-normal">تومان</span></div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">سهم ۳۰٪</div>
+</div>
+</div>
+<!-- Transaction Item 3 -->
+<div class="bg-surface-elevation-1 border border-outline-variant rounded-lg p-4 flex justify-between items-center hover:bg-surface-elevation-2 transition-colors group cursor-default">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center border border-outline-variant group-hover:border-primary-container transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary-container" style="font-variation-settings: 'FILL' 0;">check_circle</span>
+</div>
+<div>
+<div class="font-mono-tracking font-label-md text-label-md text-high-contrast-text tracking-widest bg-surface-variant px-1 rounded inline-block mb-1">IR-2025-B773</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">تحویل موفق • دیروز ۱۱:۰۰</div>
+</div>
+</div>
+<div class="text-left">
+<div class="font-body-md text-body-md text-primary-container font-semibold">+ ۹۵,۰۰۰ <span class="text-xs font-normal">تومان</span></div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">سهم ۳۰٪</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Spacer for FAB/Bottom Nav -->
+<div class="h-20"></div>
+</main>
+<!-- Floating Action Area (Pinned to bottom above Nav) -->
+<div class="fixed bottom-24 left-0 w-full px-margin-mobile md:px-margin-desktop z-40 max-w-5xl mx-auto left-1/2 -translate-x-1/2 pointer-events-none">
+<button class="w-full bg-primary-container text-on-primary-fixed font-headline-sm text-headline-sm py-4 rounded-xl btn-glow flex items-center justify-center gap-2 pointer-events-auto active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+            درخواست تسویه حساب
+        </button>
+</div>
+<!-- BottomNavBar (From JSON) -->
+<nav class="fixed bottom-0 w-full z-50 h-20 border-t border-outline-variant bg-surface-container-lowest flex justify-around items-center px-2 pb-safe shadow-lg md:hidden">
+<!-- Item 1: Dashboard (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-90 transition-transform w-full h-full rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<!-- Item 2: Activity (Active - Because this is a Performance/Activity report) -->
+<a class="flex flex-col items-center justify-center text-primary font-bold hover:bg-surface-container-high transition-colors active:scale-90 transition-transform w-full h-full rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="font-label-sm text-label-sm">Activity</span>
+</a>
+<!-- Item 3: Messages (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-90 transition-transform w-full h-full rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">chat_bubble</span>
+<span class="font-label-sm text-label-sm">Messages</span>
+</a>
+<!-- Item 4: Profile (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-90 transition-transform w-full h-full rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Desktop Side Navigation Override (Hidden on Mobile, Visible on md+) -->
+<!-- Note: Following instructions to pivot responsive nav -->
+<nav class="hidden md:flex flex-col fixed right-0 top-16 bottom-0 w-64 border-l border-outline-variant bg-surface-container-lowest p-4 z-30">
+<div class="space-y-2 mt-4">
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg bg-surface-container-high text-primary font-bold border-r-2 border-primary" href="#">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="font-body-md text-body-md">Activity</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">chat_bubble</span>
+<span class="font-body-md text-body-md">Messages</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-body-md text-body-md">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

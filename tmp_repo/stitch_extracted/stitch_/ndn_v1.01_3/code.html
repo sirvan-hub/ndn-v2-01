@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Customer Registration - NDN</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-error": "#690005",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "surface-elevation-2": "#1E1E1E",
+                        "primary-fixed": "#ffe088",
+                        "on-tertiary-container": "#454545",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-dim": "#131313",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-background": "#e2e2e2",
+                        "error-red": "#FF4444",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-error-container": "#ffdad6",
+                        "surface-container": "#1f1f1f",
+                        "secondary": "#c7c6c6",
+                        "on-tertiary": "#303030",
+                        "surface": "#131313",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "surface-tint": "#e9c349",
+                        "surface-container-low": "#1b1b1b",
+                        "tertiary-fixed": "#e4e2e1",
+                        "on-secondary-container": "#b5b5b5",
+                        "inverse-on-surface": "#303030",
+                        "outline-variant": "#4d4635",
+                        "tertiary": "#d0cdcd",
+                        "success-gold": "#C5A028",
+                        "tertiary-container": "#b4b2b2",
+                        "surface-elevation-1": "#121212",
+                        "on-primary": "#3c2f00",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "background": "#131313",
+                        "outline": "#99907c",
+                        "error-container": "#93000a",
+                        "surface-variant": "#353535",
+                        "on-primary-container": "#554300",
+                        "on-primary-fixed-variant": "#574500",
+                        "error": "#ffb4ab",
+                        "on-surface-variant": "#d0c5af",
+                        "primary-container": "#d4af37",
+                        "secondary-container": "#464747",
+                        "on-secondary": "#303031",
+                        "surface-bright": "#393939",
+                        "inverse-primary": "#735c00",
+                        "surface-container-high": "#2a2a2a",
+                        "on-surface": "#e2e2e2",
+                        "inverse-surface": "#e2e2e2",
+                        "primary": "#f2ca50",
+                        "surface-container-highest": "#353535",
+                        "high-contrast-text": "#FFFFFF",
+                        "secondary-fixed": "#e3e2e2",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-primary-fixed": "#241a00"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "lg": "24px",
+                        "margin-mobile": "16px",
+                        "base": "4px",
+                        "md": "16px",
+                        "margin-desktop": "40px",
+                        "sm": "12px",
+                        "xl": "32px",
+                        "xs": "8px",
+                        "gutter": "16px"
+                    },
+                    fontFamily: {
+                        "headline-md": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "label-sm": ["JetBrains Mono"],
+                        "body-lg": ["Work Sans"],
+                        "headline-sm": ["Be Vietnam Pro"],
+                        "body-sm": ["Work Sans"],
+                        "label-md": ["JetBrains Mono"],
+                        "body-md": ["Work Sans"]
+                    },
+                    fontSize: {
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "700" }],
+                        "display-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "label-sm": ["12px", { lineHeight: "14px", letterSpacing: "0.05em", fontWeight: "500" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "label-md": ["14px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "500" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Work Sans', sans-serif; }
+        .vazir-font { font-family: Tahoma, Arial, sans-serif; } /* Fallback for Persian if custom fonts lack glyphs */
+        .glass-panel {
+            background: rgba(18, 18, 18, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid #333333;
+        }
+        .gold-glow {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background vazir-font min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-background dark:bg-background border-b border-outline-variant dark:border-outline-variant flex justify-between items-center px-margin-mobile py-base z-50">
+<button class="text-on-surface-variant dark:text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 transition-transform flex items-center justify-center p-2">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<div class="font-headline-md text-headline-md-mobile font-bold text-primary dark:text-primary tracking-tight">
+            NDN
+        </div>
+<div class="w-10"></div> <!-- Spacer for center alignment -->
+</header>
+<!-- Main Content Canvas -->
+<main class="px-margin-mobile pt-lg space-y-xl max-w-lg mx-auto">
+<!-- Header Text -->
+<div class="text-center space-y-sm">
+<h1 class="font-headline-sm text-headline-sm text-high-contrast-text">تکمیل پروفایل کاربری</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">لطفاً اطلاعات زیر را برای فعال‌سازی حساب خود تکمیل کنید.</p>
+</div>
+<!-- Avatar Upload -->
+<div class="flex flex-col items-center justify-center space-y-md">
+<div class="relative w-24 h-24 rounded-full bg-surface-elevation-1 border border-outline-variant flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant" data-icon="person">person</span>
+<div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-white" data-icon="upload">upload</span>
+</div>
+</div>
+<button class="font-label-md text-label-md text-primary hover:text-primary-fixed-dim transition-colors">بارگذاری تصویر پروفایل</button>
+</div>
+<!-- Form Section -->
+<form class="space-y-md">
+<!-- Full Name -->
+<div class="space-y-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">نام و نام خانوادگی</label>
+<div class="relative">
+<input class="w-full bg-surface-elevation-1 border border-[#333333] focus:border-primary-container rounded-lg px-md py-sm font-body-md text-body-md text-high-contrast-text placeholder-on-tertiary-container focus:ring-0 focus:outline-none transition-colors" placeholder="مثال: علی محمدی" type="text"/>
+</div>
+</div>
+<!-- National ID -->
+<div class="space-y-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">کد ملی</label>
+<div class="relative">
+<input class="w-full bg-surface-elevation-1 border border-[#333333] focus:border-primary-container rounded-lg px-md py-sm font-label-md text-label-md text-high-contrast-text placeholder-on-tertiary-container focus:ring-0 focus:outline-none transition-colors text-left" dir="ltr" placeholder="0123456789" type="text"/>
+</div>
+</div>
+<!-- Mobile Number (Pre-filled, Readonly) -->
+<div class="space-y-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">شماره موبایل</label>
+<div class="relative">
+<input class="w-full bg-surface-dim border border-[#333333] rounded-lg px-md py-sm font-label-md text-label-md text-on-surface-variant opacity-70 cursor-not-allowed focus:ring-0 focus:outline-none text-left" dir="ltr" readonly="" type="text" value="0912 345 6789"/>
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-success-gold text-sm" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<!-- Address -->
+<div class="space-y-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">آدرس دقیق پستی</label>
+<textarea class="w-full bg-surface-elevation-1 border border-[#333333] focus:border-primary-container rounded-lg px-md py-sm font-body-md text-body-md text-high-contrast-text placeholder-on-tertiary-container focus:ring-0 focus:outline-none transition-colors resize-none" placeholder="آدرس خود را وارد کنید..." rows="3"></textarea>
+</div>
+<!-- Preferred Delivery Time -->
+<div class="space-y-xs pt-sm">
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-sm">زمان ترجیحی دریافت مرسولات</label>
+<div class="grid grid-cols-2 gap-md">
+<label class="flex items-center space-x-reverse space-x-2 p-sm border border-[#333333] rounded-lg bg-surface-elevation-1 cursor-pointer hover:bg-surface-elevation-2 transition-colors">
+<input class="form-radio text-primary-container focus:ring-primary-container focus:ring-offset-background bg-transparent border-[#333333]" name="delivery_time" type="radio"/>
+<span class="font-body-sm text-body-sm text-on-background mr-2">صبح (۸ الی ۱۳)</span>
+</label>
+<label class="flex items-center space-x-reverse space-x-2 p-sm border border-[#333333] rounded-lg bg-surface-elevation-1 cursor-pointer hover:bg-surface-elevation-2 transition-colors">
+<input class="form-radio text-primary-container focus:ring-primary-container focus:ring-offset-background bg-transparent border-[#333333]" name="delivery_time" type="radio"/>
+<span class="font-body-sm text-body-sm text-on-background mr-2">عصر (۱۴ الی ۱۹)</span>
+</label>
+</div>
+</div>
+<!-- Document Upload -->
+<div class="space-y-xs pt-sm">
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-sm">مدارک هویتی (تصویر کارت ملی)</label>
+<div class="w-full h-32 border-2 border-dashed border-[#333333] rounded-lg bg-surface-elevation-1 flex flex-col items-center justify-center cursor-pointer hover:border-primary-container transition-colors group">
+<span class="material-symbols-outlined text-3xl text-on-surface-variant group-hover:text-primary-container mb-2 transition-colors" data-icon="add_photo_alternate">add_photo_alternate</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-high-contrast-text transition-colors">برای آپلود تصویر کلیک کنید</span>
+</div>
+</div>
+</form>
+</main>
+<!-- Bottom Action Bar (Gold Button) -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-outline-variant p-margin-mobile z-40 pb-safe">
+<button class="w-full bg-primary-container text-black font-headline-sm text-headline-sm py-sm rounded-lg flex items-center justify-center space-x-reverse space-x-2 gold-glow hover:opacity-90 active:scale-95 transition-all">
+<span>تکمیل ثبت‌نام</span>
+<span class="material-symbols-outlined mr-2" data-icon="check">check</span>
+</button>
+</div>
+</body></html>

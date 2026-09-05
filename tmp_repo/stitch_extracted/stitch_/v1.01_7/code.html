@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>مدیریت عملیاتی هاب | سامانه پستی محله</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Work+Sans:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-primary": "#3c2f00",
+                        "background": "#131313",
+                        "on-secondary": "#303031",
+                        "surface-container-high": "#2a2a2a",
+                        "on-error": "#690005",
+                        "surface-container-low": "#1b1b1b",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6",
+                        "surface-variant": "#353535",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "tertiary": "#d0cdcd",
+                        "inverse-on-surface": "#303030",
+                        "on-primary-fixed": "#241a00",
+                        "inverse-surface": "#e2e2e2",
+                        "primary-container": "#d4af37",
+                        "secondary-fixed": "#e3e2e2",
+                        "secondary-container": "#464747",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "on-tertiary-container": "#454545",
+                        "on-surface": "#e2e2e2",
+                        "tertiary-container": "#b4b2b2",
+                        "on-primary-fixed-variant": "#574500",
+                        "surface-bright": "#393939",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "inverse-primary": "#735c00",
+                        "surface": "#131313",
+                        "surface-tint": "#e9c349",
+                        "surface-elevation-2": "#1E1E1E",
+                        "on-secondary-container": "#b5b5b5",
+                        "primary-fixed": "#ffe088",
+                        "surface-container-highest": "#353535",
+                        "on-surface-variant": "#d0c5af",
+                        "primary": "#f2ca50",
+                        "on-primary-container": "#554300",
+                        "success-gold": "#C5A028",
+                        "error": "#ffb4ab",
+                        "on-background": "#e2e2e2",
+                        "outline": "#99907c",
+                        "outline-variant": "#4d4635",
+                        "surface-container": "#1f1f1f",
+                        "primary-fixed-dim": "#e9c349",
+                        "surface-dim": "#131313",
+                        "error-red": "#FF4444",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "secondary": "#c7c6c6",
+                        "on-secondary-fixed-variant": "#464747",
+                        "surface-elevation-1": "#121212",
+                        "tertiary-fixed": "#e4e2e1",
+                        "on-tertiary": "#303030",
+                        "high-contrast-text": "#FFFFFF",
+                        "surface-container-lowest": "#0e0e0e"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        full: "0.75rem"
+                    },
+                    spacing: {
+                        lg: "24px",
+                        "margin-desktop": "40px",
+                        "gutter": "16px",
+                        "sm": "12px",
+                        "xs": "8px",
+                        "xl": "32px",
+                        "margin-mobile": "16px",
+                        "base": "4px",
+                        "md": "16px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Work Sans"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "body-sm": ["Work Sans"],
+                        "headline-sm": ["Be Vietnam Pro"],
+                        "label-md": ["JetBrains Mono"],
+                        "body-lg": ["Work Sans"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "label-sm": ["JetBrains Mono"]
+                    },
+                    fontSize: {
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "700" }],
+                        "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "label-md": ["14px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "500" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "display-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "label-sm": ["12px", { lineHeight: "14px", letterSpacing: "0.05em", fontWeight: "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .font-jetbrains { font-family: 'JetBrains Mono', monospace; }
+        .glow-gold { box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-[80px]">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim docked full-width top-0 bg-surface-container-low dark:bg-surface-container-high shadow-sm dark:shadow-none flex flex-row-reverse justify-between items-center w-full px-margin-mobile py-xs max-w-7xl mx-auto z-50 sticky top-0">
+<div class="flex items-center gap-sm">
+<img alt="NDN Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzEv2ZPdtJ3apJXMH_Hom_gwldjmyga-48IRRRcXqr90uKc8YpPAMIBiwLQKPn5If9-L2eJ9B2u69jKO5EXwllNO6YHQb7D2Uim5ZxpdhhlJ2DslepXBoYVbrWc9Z-tximF-Pb4Mj11bt2EJLb21SSf5N4xIW74-ocdd18TZwikNiaXBMMwO5YYVfuxdZl-p4YITcUPEnmbFyAjmSBn4Y-7v4KAtfK8aek7W6FZE7wpFI2YR_wWqrK6rWSODY0KJPwJyg"/>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim">سامانه پستی محله</h1>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors active:scale-95 duration-100 p-xs rounded-full">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-variant border border-outline-variant overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A highly detailed close-up portrait of a professional logistics manager, wearing a dark suit with a subtle gold lapel pin, set against a deep black background with soft rim lighting. The mood is authoritative and secure, fitting a premium logistics app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoYmkpnpT1dK0C4zexHK9_mCBzDTKotBRq-XJAO2SjVCUl6BCI3cMN6mOJm1KcW884MHRH9fpXA86AY1vTcEjc_Ei-pr2Mu4IkTd3lmKYTvqqe8qVNtgKUQnYos295Xba-a0WjJLshVWf7Oaadic-fCzNWqnFDHB4ooy3ex82Zbmxva5u3QM0YJdOLf0S_yCDxYkS7Y-Ov0l19QBfBicumQtFwBfWfmcGQLzucIsaNHSwZM5Q5RNv4Hw"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="max-w-7xl mx-auto px-margin-mobile pt-md flex flex-col gap-lg">
+<!-- Header Section -->
+<div class="flex justify-between items-center">
+<h2 class="font-headline-md text-headline-md font-bold text-high-contrast-text">مدیریت عملیاتی هاب</h2>
+<div class="flex gap-sm">
+<button class="bg-primary-container text-primary-fixed-dim bg-opacity-10 border border-primary-container px-md py-xs rounded-lg font-label-md text-label-md flex items-center gap-xs hover:bg-opacity-20 transition-all glow-gold">
+<span class="material-symbols-outlined text-base">download</span>
+                    پذیرش ورودی
+                </button>
+<button class="bg-primary-container text-on-primary-container px-md py-xs rounded-lg font-label-md text-label-md flex items-center gap-xs hover:bg-primary-fixed transition-all glow-gold font-bold">
+<span class="material-symbols-outlined text-base">upload</span>
+                    ثبت خروجی
+                </button>
+</div>
+</div>
+<!-- Statistics Grid (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Card 1 -->
+<div class="bg-surface-elevation-1 border border-surface-variant rounded-xl p-md flex flex-col gap-xs relative overflow-hidden group">
+<div class="absolute left-0 top-0 h-full w-1 bg-primary-container"></div>
+<div class="flex justify-between items-start">
+<span class="text-on-surface-variant font-body-sm text-body-sm">بسته‌های موجود در هاب</span>
+<span class="material-symbols-outlined text-primary-container bg-primary-container bg-opacity-10 p-xs rounded-lg">inventory_2</span>
+</div>
+<div class="font-display-lg text-display-lg text-high-contrast-text mt-sm" data-field="hub_inventory_count">۴۲</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-elevation-1 border border-surface-variant rounded-xl p-md flex flex-col gap-xs relative overflow-hidden group">
+<div class="absolute left-0 top-0 h-full w-1 bg-success-gold"></div>
+<div class="flex justify-between items-start">
+<span class="text-on-surface-variant font-body-sm text-body-sm">آماده تحویل به سفیر</span>
+<span class="material-symbols-outlined text-success-gold bg-success-gold bg-opacity-10 p-xs rounded-lg">local_shipping</span>
+</div>
+<div class="font-display-lg text-display-lg text-high-contrast-text mt-sm" data-field="ready_to_ship_count">۱۸</div>
+</div>
+</div>
+<!-- SLA Alert Section -->
+<div class="bg-error-container bg-opacity-10 border border-error-red rounded-xl p-md flex flex-col md:flex-row items-center justify-between gap-md relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-r from-error-red/5 to-transparent pointer-events-none"></div>
+<div class="flex items-center gap-md z-10">
+<div class="bg-error-red bg-opacity-20 p-sm rounded-full animate-pulse">
+<span class="material-symbols-outlined text-error-red text-[24px]">warning</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-error-red font-bold">بسته‌های در معرض تاخیر</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">۳ بسته نزدیک به پایان زمان استاندارد (SLA)</p>
+</div>
+</div>
+<div class="flex items-center gap-sm bg-surface-elevation-2 px-md py-sm rounded-lg border border-surface-variant z-10">
+<span class="material-symbols-outlined text-error-red text-[18px]">timer</span>
+<span class="font-jetbrains text-error-red font-bold text-headline-sm" data-field="sla_timer">01:45:00</span>
+</div>
+</div>
+<!-- Active Package List -->
+<div class="flex flex-col gap-sm">
+<h3 class="font-headline-sm text-headline-sm font-bold text-high-contrast-text">لیست بسته‌های فعال</h3>
+<div class="flex flex-col gap-xs">
+<!-- List Item 1 -->
+<div class="bg-surface-elevation-1 border border-surface-variant rounded-lg p-sm flex items-center justify-between hover:bg-surface-elevation-2 transition-colors cursor-pointer group relative overflow-hidden">
+<div class="absolute right-0 top-0 h-full w-1 bg-surface-variant group-hover:bg-primary-container transition-colors"></div>
+<div class="flex items-center gap-md">
+<div class="flex flex-col gap-base">
+<span class="font-jetbrains text-high-contrast-text text-label-md font-bold tracking-wider bg-surface-variant bg-opacity-50 px-xs py-base rounded" data-field="pkg_id_1">IR-8924-A</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">person</span>
+                                علی رضایی
+                            </span>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex flex-col items-end gap-base hidden md:flex">
+<span class="font-body-sm text-body-sm text-on-surface-variant">زمان توقف در هاب</span>
+<span class="font-jetbrains text-error-red text-label-md font-bold">۱۴ ساعت</span>
+</div>
+<span class="bg-primary-container bg-opacity-10 text-primary-fixed-dim px-sm py-base rounded-full font-label-sm text-label-sm border border-primary-container border-opacity-30">در انتظار سفیر</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary-container transition-colors">chevron_left</span>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="bg-surface-elevation-1 border border-surface-variant rounded-lg p-sm flex items-center justify-between hover:bg-surface-elevation-2 transition-colors cursor-pointer group relative overflow-hidden">
+<div class="absolute right-0 top-0 h-full w-1 bg-surface-variant group-hover:bg-primary-container transition-colors"></div>
+<div class="flex items-center gap-md">
+<div class="flex flex-col gap-base">
+<span class="font-jetbrains text-high-contrast-text text-label-md font-bold tracking-wider bg-surface-variant bg-opacity-50 px-xs py-base rounded" data-field="pkg_id_2">IR-9102-B</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">person</span>
+                                مریم حسینی
+                            </span>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex flex-col items-end gap-base hidden md:flex">
+<span class="font-body-sm text-body-sm text-on-surface-variant">زمان توقف در هاب</span>
+<span class="font-jetbrains text-on-surface-variant text-label-md">۲ ساعت</span>
+</div>
+<span class="bg-surface-variant text-on-surface px-sm py-base rounded-full font-label-sm text-label-sm border border-outline-variant">دریافت شده</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary-container transition-colors">chevron_left</span>
+</div>
+</div>
+<!-- List Item 3 -->
+<div class="bg-surface-elevation-1 border border-surface-variant rounded-lg p-sm flex items-center justify-between hover:bg-surface-elevation-2 transition-colors cursor-pointer group relative overflow-hidden">
+<div class="absolute right-0 top-0 h-full w-1 bg-surface-variant group-hover:bg-primary-container transition-colors"></div>
+<div class="flex items-center gap-md">
+<div class="flex flex-col gap-base">
+<span class="font-jetbrains text-high-contrast-text text-label-md font-bold tracking-wider bg-surface-variant bg-opacity-50 px-xs py-base rounded" data-field="pkg_id_3">IR-7741-C</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">person</span>
+                                فروشگاه دیجی‌کالا
+                            </span>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex flex-col items-end gap-base hidden md:flex">
+<span class="font-body-sm text-body-sm text-on-surface-variant">زمان توقف در هاب</span>
+<span class="font-jetbrains text-on-surface-variant text-label-md">۴۵ دقیقه</span>
+</div>
+<span class="bg-surface-variant text-on-surface px-sm py-base rounded-full font-label-sm text-label-sm border border-outline-variant">دریافت شده</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary-container transition-colors">chevron_left</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden bg-surface-container-lowest dark:bg-surface-container-lowest docked full-width bottom-0 rounded-t-xl shadow-[0_-4px_6px_-1px_rgba(30,58,138,0.1)] fixed bottom-0 left-0 w-full z-50 flex flex-row-reverse justify-around items-center px-xs pb-sm pt-xs">
+<!-- Active Tab: پیش‌خوان (Dashboard) -->
+<button class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-md py-base active:scale-90 duration-200">
+<span class="material-symbols-outlined font-label-md text-label-md" data-icon="dashboard" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-sm text-label-sm mt-1">پیش‌خوان</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-base hover:text-primary dark:hover:text-primary-fixed-dim active:scale-90 duration-200">
+<span class="material-symbols-outlined font-label-md text-label-md" data-icon="package_2">package_2</span>
+<span class="font-label-sm text-label-sm mt-1">بسته‌ها</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-base hover:text-primary dark:hover:text-primary-fixed-dim active:scale-90 duration-200">
+<span class="material-symbols-outlined font-label-md text-label-md" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span class="font-label-sm text-label-sm mt-1">اسکن</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-base hover:text-primary dark:hover:text-primary-fixed-dim active:scale-90 duration-200">
+<span class="material-symbols-outlined font-label-md text-label-md" data-icon="settings">settings</span>
+<span class="font-label-sm text-label-sm mt-1">تنظیمات</span>
+</button>
+</nav>
+</body></html>

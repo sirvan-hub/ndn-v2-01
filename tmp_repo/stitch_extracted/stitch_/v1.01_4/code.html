@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>پنل هاب محله - مدیریت بسته‌ها</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-elevation-2": "#1E1E1E",
+                        "success-gold": "#C5A028",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-surface-variant": "#d0c5af",
+                        "background": "#131313",
+                        "on-error-container": "#ffdad6",
+                        "primary-container": "#d4af37",
+                        "on-secondary-fixed-variant": "#464747",
+                        "surface-tint": "#e9c349",
+                        "outline": "#99907c",
+                        "on-surface": "#e2e2e2",
+                        "error-red": "#FF4444",
+                        "error": "#ffb4ab",
+                        "on-tertiary": "#303030",
+                        "secondary-container": "#464747",
+                        "on-tertiary-container": "#454545",
+                        "on-primary": "#3c2f00",
+                        "surface-container-highest": "#353535",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "on-error": "#690005",
+                        "on-primary-fixed": "#241a00",
+                        "surface": "#131313",
+                        "tertiary-container": "#b4b2b2",
+                        "surface-container": "#1f1f1f",
+                        "surface-bright": "#393939",
+                        "surface-dim": "#131313",
+                        "inverse-surface": "#e2e2e2",
+                        "outline-variant": "#4d4635",
+                        "tertiary": "#d0cdcd",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary-container": "#554300",
+                        "on-secondary": "#303031",
+                        "on-secondary-container": "#b5b5b5",
+                        "surface-elevation-1": "#121212",
+                        "primary-fixed-dim": "#e9c349",
+                        "surface-container-high": "#2a2a2a",
+                        "primary-fixed": "#ffe088",
+                        "on-primary-fixed-variant": "#574500",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "primary": "#f2ca50",
+                        "error-container": "#93000a",
+                        "on-background": "#e2e2e2",
+                        "inverse-primary": "#735c00",
+                        "surface-variant": "#353535",
+                        "tertiary-fixed": "#e4e2e1",
+                        "secondary": "#c7c6c6",
+                        "surface-container-low": "#1b1b1b",
+                        "secondary-fixed": "#e3e2e2",
+                        "high-contrast-text": "#FFFFFF",
+                        "inverse-on-surface": "#303030"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "gutter": "16px",
+                        "base": "4px",
+                        "md": "16px",
+                        "margin-desktop": "40px",
+                        "xl": "32px",
+                        "margin-mobile": "16px",
+                        "lg": "24px",
+                        "xs": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Be Vietnam Pro", "sans-serif"],
+                        "label-sm": ["JetBrains Mono", "monospace"],
+                        "headline-sm": ["Be Vietnam Pro", "sans-serif"],
+                        "body-md": ["Work Sans", "sans-serif"],
+                        "body-lg": ["Work Sans", "sans-serif"],
+                        "label-md": ["JetBrains Mono", "monospace"],
+                        "display-lg": ["Be Vietnam Pro", "sans-serif"],
+                        "body-sm": ["Work Sans", "sans-serif"],
+                        "headline-md": ["Be Vietnam Pro", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        @font-face {
+            font-family: 'Vazirmatn';
+            src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/fonts/webfonts/Vazirmatn-Regular.woff2') format('woff2');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'Vazirmatn';
+            src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/fonts/webfonts/Vazirmatn-Bold.woff2') format('woff2');
+            font-weight: 700;
+        }
+        body {
+            font-family: 'Vazirmatn', 'Work Sans', sans-serif; /* Fallback for Persian */
+            background-color: #131313;
+            color: #e2e2e2;
+        }
+        .glow-button {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-32 flex flex-col md:max-w-[1280px] md:mx-auto">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-background border-b border-outline-variant z-40 hidden md:flex">
+<div class="flex justify-between items-center px-margin-mobile py-base w-full h-16">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80 transition-opacity active:scale-95" data-icon="menu">menu</span>
+<span class="font-headline-md font-bold text-primary tracking-tight">NDN</span>
+<span class="ml-4 font-headline-sm text-on-surface border-r border-outline-variant pr-4 mr-4">پنل هاب محله</span>
+</div>
+<div class="flex items-center gap-6">
+<!-- Desktop Nav Cluster -->
+<nav class="flex gap-6">
+<a class="text-primary font-bold flex flex-col items-center group" href="#">
+<span class="material-symbols-outlined mb-1">dashboard</span>
+<span class="font-label-sm">Dashboard</span>
+</a>
+<a class="text-on-surface-variant opacity-60 hover:text-primary-fixed-dim transition-colors flex flex-col items-center group" href="#">
+<span class="material-symbols-outlined mb-1">package_2</span>
+<span class="font-label-sm">Packages</span>
+</a>
+<a class="text-on-surface-variant opacity-60 hover:text-primary-fixed-dim transition-colors flex flex-col items-center group" href="#">
+<span class="material-symbols-outlined mb-1">qr_code_scanner</span>
+<span class="font-label-sm">Scanner</span>
+</a>
+<a class="text-on-surface-variant opacity-60 hover:text-primary-fixed-dim transition-colors flex flex-col items-center group" href="#">
+<span class="material-symbols-outlined mb-1">settings</span>
+<span class="font-label-sm">Settings</span>
+</a>
+</nav>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80 transition-opacity active:scale-95" data-icon="notifications">notifications</span>
+</div>
+</div>
+</header>
+<!-- Mobile Top Header (Custom for Mobile) -->
+<header class="md:hidden w-full top-0 sticky bg-background z-40 border-b border-outline-variant flex justify-between items-center px-margin-mobile py-sm">
+<div class="flex items-center gap-xs">
+<img alt="NDN Logo" class="w-8 h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyOvpEDnQcRWCa8zHk8NdwxN-FgauvFEw99Uu6tRgSmDgCKUGCGa-oYRmwiUyKvSWmBkHisaIo_V5-2TVBzfrM45zhltlSinSzOdkX6bLzBcIC4JiUqdVxbBtpk5QayRnGrEqRaVjAQSlyDF9j8dghD9kpnQLvjRhiZb21hJtmjpmXSuErQ7L7utGINdMJCJBANH8NxFx5wjoTgOe4TPFR0Tgat5wX4EcJwdDW9GAYZr0iZPHh4fV2nB0GMGWwXj7vUeU"/>
+<span class="font-headline-sm font-bold text-on-surface">پنل هاب محله</span>
+</div>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80 transition-opacity active:scale-95" data-icon="notifications">notifications</span>
+</header>
+<main class="flex-grow px-margin-mobile pt-md pb-xl flex flex-col gap-lg md:px-margin-desktop md:pt-lg">
+<!-- Quick Stats -->
+<section class="grid grid-cols-2 gap-md">
+<div class="bg-surface-elevation-1 border border-[#333333] rounded-lg p-md flex flex-col items-start gap-sm relative overflow-hidden group">
+<div class="w-1 h-full bg-primary absolute right-0 top-0 bottom-0 rounded-r-lg"></div>
+<div class="flex justify-between items-center w-full">
+<span class="font-body-sm text-on-surface-variant">بسته‌های در هاب</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+</div>
+<span class="font-display-lg text-high-contrast-text" data-field="packages-in-hub-count">42</span>
+</div>
+<div class="bg-surface-elevation-1 border border-[#333333] rounded-lg p-md flex flex-col items-start gap-sm relative overflow-hidden group">
+<div class="w-1 h-full bg-success-gold absolute right-0 top-0 bottom-0 rounded-r-lg"></div>
+<div class="flex justify-between items-center w-full">
+<span class="font-body-sm text-on-surface-variant">آماده تحویل</span>
+<span class="material-symbols-outlined text-success-gold" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<span class="font-display-lg text-high-contrast-text" data-field="ready-for-delivery-count">18</span>
+</div>
+</section>
+<!-- Action Buttons -->
+<section class="flex flex-col gap-sm md:flex-row md:gap-md">
+<button class="w-full bg-primary text-on-primary font-headline-sm rounded-xl py-sm px-md flex items-center justify-center gap-xs glow-button active:scale-95 transition-transform hover:opacity-90">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+<span>دریافت از سفیر</span>
+</button>
+<button class="w-full bg-surface-variant text-high-contrast-text border border-outline-variant font-headline-sm rounded-xl py-sm px-md flex items-center justify-center gap-xs active:scale-95 transition-transform hover:bg-surface-container">
+<span class="material-symbols-outlined text-primary">how_to_reg</span>
+<span>تحویل به مشتری</span>
+</button>
+</section>
+<!-- Package List Section -->
+<section class="flex flex-col gap-sm">
+<h2 class="font-headline-sm text-on-surface mb-xs border-b border-outline-variant pb-xs w-max pr-xs">لیست بسته‌های موجود در هاب</h2>
+<div class="flex flex-col gap-sm">
+<!-- Package Card 1 -->
+<div class="bg-surface-elevation-1 border border-[#333333] rounded-lg p-md flex flex-col gap-sm hover:bg-surface-elevation-2 transition-colors cursor-pointer group">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-high-contrast-text font-label-sm tracking-wider" data-field="package-id-1" dir="ltr">IR-1049-X72</span>
+<div class="flex items-center gap-xs bg-surface-container-high rounded-full px-2 py-1 border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[16px]">schedule</span>
+<span class="font-label-sm text-on-surface-variant text-[10px]" data-field="package-sla-1">۲ روز در هاب</span>
+</div>
+</div>
+<div class="h-[1px] w-full bg-[#333333] my-xs"></div>
+<div class="flex justify-between items-center">
+<div class="flex flex-col gap-xs">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">person</span>
+<span class="font-body-sm text-on-surface" data-field="sender-name-1">فرستنده: شرکت دیجی‌کالا</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">home</span>
+<span class="font-body-sm text-on-surface" data-field="customer-name-1">گیرنده: علی محمدی</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform rtl:group-hover:-translate-x-1">chevron_left</span>
+</div>
+</div>
+<!-- Package Card 2 -->
+<div class="bg-surface-elevation-1 border border-[#333333] rounded-lg p-md flex flex-col gap-sm hover:bg-surface-elevation-2 transition-colors cursor-pointer group relative overflow-hidden">
+<div class="w-1 h-full bg-success-gold absolute right-0 top-0 bottom-0"></div> <!-- High priority indicator -->
+<div class="flex justify-between items-center pr-xs">
+<span class="font-label-md text-high-contrast-text font-label-sm tracking-wider" data-field="package-id-2" dir="ltr">IR-2051-A99</span>
+<div class="flex items-center gap-xs bg-surface-container-high rounded-full px-2 py-1 border border-outline-variant">
+<span class="material-symbols-outlined text-success-gold text-[16px]">check_circle</span>
+<span class="font-label-sm text-on-surface-variant text-[10px]" data-field="package-sla-2">آماده تحویل</span>
+</div>
+</div>
+<div class="h-[1px] w-full bg-[#333333] my-xs"></div>
+<div class="flex justify-between items-center pr-xs">
+<div class="flex flex-col gap-xs">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">person</span>
+<span class="font-body-sm text-on-surface" data-field="sender-name-2">فرستنده: فروشگاه آنلاین</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">home</span>
+<span class="font-body-sm text-on-surface" data-field="customer-name-2">گیرنده: سارا احمدی</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform rtl:group-hover:-translate-x-1">chevron_left</span>
+</div>
+</div>
+<!-- Package Card 3 -->
+<div class="bg-surface-elevation-1 border border-[#333333] rounded-lg p-md flex flex-col gap-sm hover:bg-surface-elevation-2 transition-colors cursor-pointer group">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-high-contrast-text font-label-sm tracking-wider" data-field="package-id-3" dir="ltr">IR-8821-B12</span>
+<div class="flex items-center gap-xs bg-surface-container-high rounded-full px-2 py-1 border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[16px]">schedule</span>
+<span class="font-label-sm text-on-surface-variant text-[10px]" data-field="package-sla-3">۱ روز در هاب</span>
+</div>
+</div>
+<div class="h-[1px] w-full bg-[#333333] my-xs"></div>
+<div class="flex justify-between items-center">
+<div class="flex flex-col gap-xs">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">person</span>
+<span class="font-body-sm text-on-surface" data-field="sender-name-3">فرستنده: شرکت تیپاکس</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">home</span>
+<span class="font-body-sm text-on-surface" data-field="customer-name-3">گیرنده: رضا حسینی</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform rtl:group-hover:-translate-x-1">chevron_left</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface-container-lowest border-t border-outline-variant flex justify-around items-center h-16 px-gutter pb-safe">
+<!-- Active: Dashboard -->
+<a class="flex flex-col items-center justify-center text-primary font-bold active:scale-90 transition-transform duration-150 gap-1 w-1/4" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary-fixed-dim transition-colors active:scale-90 transition-transform duration-150 gap-1 w-1/4" href="#">
+<span class="material-symbols-outlined" data-icon="package_2">package_2</span>
+<span class="font-label-sm text-label-sm">Packages</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary-fixed-dim transition-colors active:scale-90 transition-transform duration-150 gap-1 w-1/4" href="#">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span class="font-label-sm text-label-sm">Scanner</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary-fixed-dim transition-colors active:scale-90 transition-transform duration-150 gap-1 w-1/4" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</nav>
+</body></html>

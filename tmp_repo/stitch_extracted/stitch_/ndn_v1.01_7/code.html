@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customer Financial History &amp; Payment Details - NDN V1.01</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#c7c6c6",
+                      "on-error": "#690005",
+                      "on-surface-variant": "#d0c5af",
+                      "surface-dim": "#131313",
+                      "error-red": "#FF4444",
+                      "surface-container-low": "#1b1b1b",
+                      "on-background": "#e2e2e2",
+                      "secondary-container": "#464747",
+                      "high-contrast-text": "#FFFFFF",
+                      "tertiary-fixed": "#e4e2e1",
+                      "tertiary-container": "#b4b2b2",
+                      "secondary-fixed": "#e3e2e2",
+                      "secondary": "#c7c6c6",
+                      "primary-fixed-dim": "#e9c349",
+                      "error-container": "#93000a",
+                      "outline": "#99907c",
+                      "tertiary": "#d0cdcd",
+                      "inverse-surface": "#e2e2e2",
+                      "surface-container-high": "#2a2a2a",
+                      "on-primary-container": "#554300",
+                      "on-tertiary-fixed-variant": "#474747",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "on-tertiary-container": "#454545",
+                      "inverse-on-surface": "#303030",
+                      "surface-bright": "#393939",
+                      "inverse-primary": "#735c00",
+                      "tertiary-fixed-dim": "#c8c6c6",
+                      "on-primary": "#3c2f00",
+                      "primary": "#f2ca50",
+                      "on-secondary-container": "#b5b5b5",
+                      "surface-container": "#1f1f1f",
+                      "on-secondary": "#303031",
+                      "success-gold": "#C5A028",
+                      "on-tertiary-fixed": "#1b1c1c",
+                      "error": "#ffb4ab",
+                      "background": "#131313",
+                      "surface-elevation-1": "#121212",
+                      "primary-fixed": "#ffe088",
+                      "on-secondary-fixed-variant": "#464747",
+                      "surface-tint": "#e9c349",
+                      "outline-variant": "#4d4635",
+                      "on-primary-fixed-variant": "#574500",
+                      "on-surface": "#e2e2e2",
+                      "surface-container-highest": "#353535",
+                      "on-primary-fixed": "#241a00",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-tertiary": "#303030",
+                      "surface-variant": "#353535",
+                      "surface": "#131313",
+                      "primary-container": "#d4af37",
+                      "surface-elevation-2": "#1E1E1E"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "xs": "8px",
+                      "gutter": "16px",
+                      "sm": "12px",
+                      "margin-desktop": "40px",
+                      "xl": "32px",
+                      "md": "16px",
+                      "lg": "24px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "label-sm": ["JetBrains Mono", "Vazirmatn", "sans-serif"],
+                      "headline-md": ["Be Vietnam Pro", "Vazirmatn", "sans-serif"],
+                      "display-lg": ["Be Vietnam Pro", "Vazirmatn", "sans-serif"],
+                      "headline-sm": ["Be Vietnam Pro", "Vazirmatn", "sans-serif"],
+                      "label-md": ["JetBrains Mono", "Vazirmatn", "sans-serif"],
+                      "body-lg": ["Work Sans", "Vazirmatn", "sans-serif"],
+                      "body-sm": ["Work Sans", "Vazirmatn", "sans-serif"],
+                      "body-md": ["Work Sans", "Vazirmatn", "sans-serif"],
+                      "headline-lg-mobile": ["Be Vietnam Pro", "Vazirmatn", "sans-serif"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body { font-family: 'Vazirmatn', sans-serif; }
+        .glass-panel {
+            background: rgba(18, 18, 18, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid #333333;
+        }
+        .glow-gold {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #f2ca50 0%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full border-b border-surface-variant bg-background dark:bg-background z-50 flex items-center justify-between px-margin-mobile h-16 transition-opacity duration-200">
+<button aria-label="Go back" class="text-primary dark:text-primary hover:opacity-80 transition-opacity duration-200">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">تاریخچه مالی</h1>
+<button aria-label="Wallet" class="text-primary dark:text-primary hover:opacity-80 transition-opacity duration-200">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</button>
+</header>
+<main class="flex-grow pt-24 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto w-full flex flex-col gap-xl">
+<!-- Branding & Summary Section -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-lg items-start">
+<!-- Branding Image (Desktop Side, Mobile Top) -->
+<div class="md:col-span-4 flex justify-center md:justify-end opacity-80 mix-blend-screen">
+<img alt="NDN Branding" class="w-32 h-auto object-contain rounded-lg border border-surface-variant p-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV3IKX1rwcZGmip4UVOHCnB9XsEAn2DC_bbBj9nZ9_hBZcWdyiOuPUFcIiiHk3CwltqVu_2mdSgYwPOrS6hRAvfg2eYDRLyS-uDMSjUPenjtz32zoVE39bvSfJ7jDUQIUGDV7n8TM21_tTkVFr3wS-T9s1d_3RZXunaO671Xe4ncaB1_W9J0JAxuNex3H3yKns2zK6cf3ppkFMb3HoxLW2F9PLJDoN3_DfAsvNGSp_8la94xbvlD-pjwoW_1BMJvLREP0"/>
+</div>
+<!-- Summary Card -->
+<div class="md:col-span-8 w-full">
+<div class="glass-panel rounded-xl p-lg flex flex-col gap-md relative overflow-hidden">
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-primary rounded-full blur-[80px] opacity-10 pointer-events-none"></div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface-variant">مجموع هزینه‌های پرداخت شده</h2>
+<div class="flex items-baseline gap-sm">
+<span class="font-display-lg text-display-lg text-gradient-gold font-bold tracking-tight">۱۲,۴۵۰,۰۰۰</span>
+<span class="font-body-md text-body-md text-primary">تومان</span>
+</div>
+<div class="border-t border-surface-variant pt-sm mt-xs flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-secondary-container">تعداد تراکنش‌ها</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">۱۴۵</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Area: Transactions & Details (Bento Grid feel) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-lg h-full">
+<!-- Transaction List (Left on RTL) -->
+<div class="lg:col-span-5 flex flex-col gap-md h-[600px] overflow-y-auto pr-2 scrollbar-hide">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm">تراکنش‌های اخیر</h3>
+<!-- Active Transaction Item -->
+<button class="w-full text-right bg-surface-elevation-2 border border-primary/50 rounded-lg p-md flex flex-col gap-sm relative transition-all glow-gold">
+<div class="absolute right-0 top-0 bottom-0 w-1 bg-primary rounded-r-lg"></div>
+<div class="flex justify-between items-start w-full">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-on-surface font-mono tracking-wider dir-ltr inline-block text-left w-max">IR-2025-A847</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">۱۴۰۳/۰۸/۲۴ - ۱۸:۳۰</span>
+</div>
+<span class="bg-primary/20 text-primary border border-primary/30 font-label-sm text-label-sm px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                            موفق
+                        </span>
+</div>
+<div class="flex justify-between items-end w-full border-t border-surface-variant pt-sm mt-xs">
+<span class="font-body-sm text-body-sm text-on-secondary-container">مبلغ کل</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">۱۲۰,۰۰۰ <span class="text-body-sm font-normal text-on-surface-variant">تومان</span></span>
+</div>
+</button>
+<!-- Inactive Transaction Item -->
+<button class="w-full text-right glass-panel rounded-lg p-md flex flex-col gap-sm hover:bg-surface-elevation-2 transition-all">
+<div class="flex justify-between items-start w-full">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-on-surface font-mono tracking-wider dir-ltr inline-block text-left w-max">IR-2025-A846</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">۱۴۰۳/۰۸/۲۳ - ۰۹:۱۵</span>
+</div>
+<span class="bg-surface-variant text-on-surface-variant border border-outline font-label-sm text-label-sm px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">pending</span>
+                            در انتظار
+                        </span>
+</div>
+<div class="flex justify-between items-end w-full border-t border-surface-variant pt-sm mt-xs">
+<span class="font-body-sm text-body-sm text-on-secondary-container">مبلغ کل</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">۸۵,۰۰۰ <span class="text-body-sm font-normal text-on-surface-variant">تومان</span></span>
+</div>
+</button>
+<!-- Inactive Transaction Item -->
+<button class="w-full text-right glass-panel rounded-lg p-md flex flex-col gap-sm hover:bg-surface-elevation-2 transition-all">
+<div class="flex justify-between items-start w-full">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-on-surface font-mono tracking-wider dir-ltr inline-block text-left w-max">IR-2025-A841</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">۱۴۰۳/۰۸/۲۰ - ۱۴:۴۵</span>
+</div>
+<span class="bg-primary/20 text-primary border border-primary/30 font-label-sm text-label-sm px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                            موفق
+                        </span>
+</div>
+<div class="flex justify-between items-end w-full border-t border-surface-variant pt-sm mt-xs">
+<span class="font-body-sm text-body-sm text-on-secondary-container">مبلغ کل</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">۲۴۰,۰۰۰ <span class="text-body-sm font-normal text-on-surface-variant">تومان</span></span>
+</div>
+</button>
+</div>
+<!-- Breakdown Details View (Right on RTL) -->
+<div class="lg:col-span-7 h-full hidden md:flex flex-col">
+<div class="glass-panel rounded-xl h-full p-lg flex flex-col relative overflow-hidden">
+<div class="flex justify-between items-center mb-xl border-b border-surface-variant pb-md">
+<h3 class="font-headline-md text-headline-md text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="pie_chart">pie_chart</span>
+                            جزئیات تراکنش <span class="font-mono text-primary text-headline-sm ml-2" dir="ltr">IR-2025-A847</span>
+</h3>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface-variant mb-md">توزیع سهم ذینفعان</h4>
+<div class="flex flex-col gap-md flex-grow">
+<!-- PUDO Share -->
+<div class="bg-surface-container p-md rounded-lg flex flex-col gap-xs border border-surface-variant relative overflow-hidden">
+<div class="absolute left-0 bottom-0 top-0 w-2 bg-[#d4af37]"></div>
+<div class="flex justify-between items-center w-full">
+<span class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">directions_run</span>
+                                    سهم سفیر PUDO
+                                </span>
+<span class="font-label-sm text-label-sm bg-surface-variant text-on-surface px-2 py-1 rounded">۳۰٪</span>
+</div>
+<div class="flex justify-end items-end w-full mt-2">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">۳۶,۰۰۰ <span class="text-body-sm font-normal text-on-surface-variant">تومان</span></span>
+</div>
+</div>
+<!-- Hub Share -->
+<div class="bg-surface-container p-md rounded-lg flex flex-col gap-xs border border-surface-variant relative overflow-hidden">
+<div class="absolute left-0 bottom-0 top-0 w-2 bg-[#a38a2e]"></div>
+<div class="flex justify-between items-center w-full">
+<span class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">store</span>
+                                    سهم هاب محله
+                                </span>
+<span class="font-label-sm text-label-sm bg-surface-variant text-on-surface px-2 py-1 rounded">۳۰٪</span>
+</div>
+<div class="flex justify-end items-end w-full mt-2">
+<span class="font-headline-sm text-headline-sm text-[#a38a2e] font-bold">۳۶,۰۰۰ <span class="text-body-sm font-normal text-on-surface-variant">تومان</span></span>
+</div>
+</div>
+<!-- NDN System Share -->
+<div class="bg-surface-container p-md rounded-lg flex flex-col gap-xs border border-surface-variant relative overflow-hidden">
+<div class="absolute left-0 bottom-0 top-0 w-2 bg-[#735c00]"></div>
+<div class="flex justify-between items-center w-full">
+<span class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">dns</span>
+                                    سهم سامانه NDN
+                                </span>
+<span class="font-label-sm text-label-sm bg-surface-variant text-on-surface px-2 py-1 rounded">۴۰٪</span>
+</div>
+<div class="flex justify-end items-end w-full mt-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">۴۸,۰۰۰ <span class="text-body-sm font-normal text-on-surface-variant">تومان</span></span>
+</div>
+</div>
+</div>
+<!-- Footer Actions in Detail View -->
+<div class="mt-auto pt-lg border-t border-surface-variant flex justify-end">
+<button class="bg-surface-container-high text-on-surface border border-surface-variant hover:bg-surface-variant px-lg py-sm rounded-lg font-body-md text-body-md font-medium transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                            خروجی گزارش
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Mobile Bottom Action (Visible only on mobile to replicate detail view actions) -->
+<div class="md:hidden mt-lg pb-xl">
+<button class="w-full bg-primary text-[#000000] py-sm rounded-lg font-body-md text-body-md font-bold transition-colors flex items-center justify-center gap-2 glow-gold">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                خروجی گزارش تمامی تراکنش‌ها
+            </button>
+</div>
+</main>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface-container-lowest dark:bg-surface-container-lowest flex justify-around items-center h-20 px-gutter border-t border-surface-variant shadow-[0_-4px_10px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-fixed-dim active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long" data-weight="fill">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-1">Ledger</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-fixed-dim active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+<span class="font-label-sm text-label-sm mt-1">Vault</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-fixed-dim active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

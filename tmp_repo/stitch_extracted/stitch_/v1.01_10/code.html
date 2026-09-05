@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customer Panel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style data-purpose="custom-fonts">
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&family=Be+Vietnam+Pro:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Vazirmatn', 'Be Vietnam Pro', sans-serif;
+            background-color: #131313;
+            color: #ffffff;
+        }
+    </style>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#d4af37',
+                        surface: '#131313',
+                        'surface-panel': '#1b1b1b',
+                    }
+                }
+            }
+        }
+    </script>
+<style data-purpose="custom-utilities">
+        .glass-panel {
+            background-color: #1b1b1b;
+            border: 1px solid #393939;
+            border-radius: 1rem;
+        }
+        .text-gold {
+            color: #d4af37;
+        }
+        .bg-gold {
+            background-color: #d4af37;
+        }
+        .border-gold {
+            border-color: #d4af37;
+        }
+        
+        @keyframes pulse-live {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(212, 175, 55, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        .live-pulse {
+            animation: pulse-live 2s infinite;
+        }
+
+        .map-interactive {
+            transition: transform 0.3s ease-out;
+            cursor: grab;
+        }
+        .map-interactive:active {
+            cursor: grabbing;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col p-4 pb-8 space-y-4">
+<!-- BEGIN: Header -->
+<header class="flex justify-between items-center py-2" data-purpose="main-header">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-transparent border border-gray-700 text-gray-400 hover:text-white transition-colors">
+<i class="fa-regular fa-bell text-xl"></i>
+</button>
+<div class="flex flex-col items-center"><img alt="NDN Logo" class="h-8 object-contain mb-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGoeO3H9uoNpcZPuAaiBl-8eYrjLD6z8LOuBIFqTp5QHLupxXEEvcQV1L5844Y9wsKApUYIzQJSpN-0tPlEDQHwqeF4JlZVgDJRv_YorVH2eGRB42YAUr6dM-pGXJ0fcu0jL2BlrgBzAGqaTlgeP-AzumQGqVLPzonKlB5C5T-fTtVkKgZLitwDcnwCRkGqk-6Vp1XuLGh18J_xGdKSTXKT93x2Tr-PCPf0rqDJrHLp18nlHGRkdb589XYQCt0HfLH6xQ"/><span class="text-xs font-medium text-gray-400">پنل مشتری</span></div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 border border-gray-700 text-gray-400 hover:text-white transition-colors">
+<i class="fa-regular fa-user text-xl"></i>
+</button>
+</header>
+<!-- END: Header -->
+<!-- BEGIN: Main Content Area -->
+<main class="flex-grow flex flex-col space-y-4" data-purpose="main-content">
+<!-- BEGIN: Countdown Timer Card -->
+<section class="glass-panel p-6 flex flex-col items-center text-center space-y-2 relative" data-purpose="countdown-section">
+<div class="flex items-center space-x-2 space-x-reverse mb-2">
+<div class="w-2.5 h-2.5 rounded-full bg-gold live-pulse"></div>
+<span class="text-gold text-xs font-bold tracking-wider">LIVE</span>
+</div>
+<p class="text-gray-400 text-sm">زمان گذشته از تحویل بسته به هاب</p>
+<div class="text-[3.5rem] font-bold text-gold leading-none tracking-wider mb-2 font-['Vazirmatn']" style="font-weight: 900;">
+                ۲۳:۱۵:۴۲
+            </div>
+<div class="w-full flex items-center justify-center space-x-2 space-x-reverse opacity-30 mt-2 mb-4">
+<div class="h-px bg-gray-500 flex-grow"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+<div class="h-px bg-gray-500 flex-grow"></div>
+</div>
+<p class="text-gray-400 text-base">IR-2025-4419</p>
+</section>
+<!-- END: Countdown Timer Card -->
+<!-- BEGIN: Delivery Hub Map Card -->
+<section class="glass-panel overflow-hidden flex flex-col relative" data-purpose="hub-map-section">
+<div class="p-4 z-10 relative bg-gradient-to-b from-surface-panel to-transparent">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="text-lg font-bold mb-1">هاب محلهٔ شما</h2>
+<p class="text-gray-400 text-xs">تهران، سعادت‌آباد، خیابان سرو شرقی، پلاک ۲۳</p>
+</div>
+<i class="fa-solid fa-crosshairs text-gold text-xl mt-1"></i>
+</div>
+</div>
+<div class="relative h-48 w-full -mt-10 bg-gray-800 overflow-hidden" id="map-container">
+<!-- Map background -->
+<div class="absolute inset-0 bg-[#252830] opacity-80 map-interactive scale-110 hover:scale-125" id="map-layer" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDykyS7JsGE6e6MGZLxehC4cOVnXYlOu-4xm5tZ7KJ4E33kvICFaZC9Dik1mhL_1y2pFuim12FqokwECnbuxpp9IcvXGl8P82RdV081tTDvR58dFx5ipln39DWOsS4F-uMsoceFjl4vk1jvg_P-lFp3PHt7NwiJFTZNDKN6mtJY4tPsS4kHdCTV8j1UOv9lHQAHuoAdY8OBB-Jcy5diDI2dp_Q9A8WpV9jHs00P2d9hQgHQPzWYWcFz5w'); background-size: cover; background-position: center; mix-blend-mode: overlay;"></div>
+<!-- Map overlays -->
+<div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none pb-4 z-20">
+<i class="fa-solid fa-location-dot text-gold text-4xl drop-shadow-md"></i>
+<span class="bg-black/60 px-2 py-1 rounded text-xs mt-1 backdrop-blur-sm">هاب محله</span>
+</div>
+<!-- Action Button Overlay -->
+<div class="absolute bottom-4 left-4 z-30">
+<button class="border border-gold text-gold px-4 py-1.5 rounded-lg flex items-center space-x-2 space-x-reverse bg-black/60 backdrop-blur-md hover:bg-gold hover:text-black transition-colors text-sm font-medium shadow-lg" onclick="document.getElementById('map-modal').classList.remove('hidden')">
+<span class="">مسیریابی</span>
+<i class="fa-solid fa-location-arrow -rotate-45 text-xs"></i>
+</button>
+</div>
+</div>
+</section>
+<!-- END: Delivery Hub Map Card -->
+<!-- BEGIN: Package Details & Scan Card -->
+<section class="glass-panel p-5 flex flex-col space-y-5" data-purpose="package-details-section">
+<!-- Details Row -->
+<div class="flex items-start space-x-4 space-x-reverse">
+<!-- Icon Box -->
+<div class="w-14 h-14 rounded-full border border-gray-700 bg-gray-800/50 flex items-center justify-center flex-shrink-0">
+<i class="fa-solid fa-box-open text-gold text-2xl"></i>
+</div>
+<!-- Info List -->
+<div class="flex-grow flex flex-col space-y-3 pt-1">
+<div class="flex items-center text-sm">
+<span class="text-gray-400 w-16">فرستنده:</span>
+<span class="font-medium text-gray-200">فروشگاه آنلاین</span>
+</div>
+<div class="h-px bg-gray-700/50 w-full"></div>
+<div class="flex items-center text-sm">
+<span class="text-gray-400 w-16 flex items-center"><i class="fa-solid fa-weight-hanging ml-2 text-xs"></i></span>
+<span class="font-medium text-gray-200">۱.۲ کیلوگرم</span>
+</div>
+<div class="h-px bg-gray-700/50 w-full"></div>
+<div class="flex items-center text-sm">
+<span class="text-gray-400 w-16">وضعیت:</span>
+<span class="font-medium flex items-center space-x-1 space-x-reverse text-gray-200">
+<i class="fa-regular fa-clock ml-1 text-xs text-gray-400"></i>
+                            در انتظار تحویل به شما
+                        </span>
+</div>
+</div>
+</div>
+<!-- Scan Button -->
+<button class="w-full bg-gold text-black font-bold py-3.5 rounded-xl flex items-center justify-center space-x-2 space-x-reverse hover:bg-yellow-600 transition-colors mt-2 text-lg shadow-[0_0_15px_rgba(212,175,55,0.3)]" onclick="document.getElementById('scanner-modal').classList.remove('hidden')">
+<i class="fa-solid fa-expand text-xl ml-2"></i>
+                اسکن برای تحویل بسته
+            </button>
+</section>
+<!-- END: Package Details & Scan Card -->
+</main>
+<!-- END: Main Content Area -->
+<!-- Navigation Bar Placeholder (implied by design space at bottom) -->
+<div class="w-1/3 h-1 bg-white rounded-full mx-auto mt-4 opacity-50"></div>
+<!-- BEGIN: Map Modal -->
+<div class="fixed inset-0 z-50 flex items-end justify-center hidden bg-black/80 backdrop-blur-sm" id="map-modal" onclick="if(event.target === this) this.classList.add('hidden')"><div class="w-full max-w-md bg-surface-panel border-t border-gray-700 rounded-t-3xl overflow-hidden shadow-2xl flex flex-col animate-[slide-up_0.3s_ease-out]"><div class="w-12 h-1.5 bg-gray-700 rounded-full mx-auto mt-3 mb-1"></div><div class="flex justify-between items-center p-4 border-b border-gray-700/50"><h3 class="font-bold text-lg text-gold">انتخاب مسیریاب</h3><button class="text-gray-400 hover:text-white" onclick="document.getElementById('map-modal').classList.add('hidden')"><i class="fa-solid fa-xmark text-xl"></i></button></div><div class="p-4 space-y-3 pb-8"><button class="w-full flex items-center justify-between bg-gray-800/50 p-4 rounded-2xl border border-gray-700 hover:border-gold transition-colors group"><div class="flex items-center space-x-4 space-x-reverse"><i class="fa-brands fa-google text-2xl text-blue-400"></i><span class="font-medium text-gray-200">Google Maps</span></div><i class="fa-solid fa-location-arrow text-xs text-gray-500 group-hover:text-gold"></i></button><button class="w-full flex items-center justify-between bg-gray-800/50 p-4 rounded-2xl border border-gray-700 hover:border-gold transition-colors group"><div class="flex items-center space-x-4 space-x-reverse"><i class="fa-brands fa-waze text-2xl text-cyan-400"></i><span class="font-medium text-gray-200">Waze</span></div><i class="fa-solid fa-location-arrow text-xs text-gray-500 group-hover:text-gold"></i></button><button class="w-full flex items-center justify-between bg-gray-800/50 p-4 rounded-2xl border border-gray-700 hover:border-gold transition-colors group"><div class="flex items-center space-x-4 space-x-reverse"><div class="w-8 h-8 rounded-full bg-white flex items-center justify-center overflow-hidden"><img alt="Neshan" class="w-6 h-6 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApurjNADR0RfPtZBTSu9Wul2IwUoyCsRxdJfvNwT7q0hjU5vlAHcPq73WL6MpUH7ZWfvaL5uMXvg4jtTkB0ccXX0fRahRfFH4cFBBrxtLNvUWiDxfUFKNaSiEd7Bh_1YXsYvC74Dqcz74Kb8rtUEgxfHafMbSXOSZ11E5U8RIgiLXDRsvhYCJThwCcSksFtk3AD7yYDvhwnyhNtf7qkqVDV5iLWWxPt2ZmuPMG-IP5r3BVBYg8XRnSBA"/></div><span class="font-medium text-gray-200">نشان (Neshan)</span></div><i class="fa-solid fa-location-arrow text-xs text-gray-500 group-hover:text-gold"></i></button><button class="w-full flex items-center justify-between bg-gray-800/50 p-4 rounded-2xl border border-gray-700 hover:border-gold transition-colors group"><div class="flex items-center space-x-4 space-x-reverse"><div class="w-8 h-8 rounded-full bg-white flex items-center justify-center overflow-hidden"><img alt="Balad" class="w-6 h-6 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk_80XmI2SIBXErjxQc56E1Au6UNjCbLZ3_eLVNIdWuFhuycwY-yQMEgWPQ9ExIP7RC9GjHaSkIhs30byqGAY660jNgA8CTSomO5gFIjc81o_LaboIIPXqzPwYOqLZBMYkfknzxuxPg7dTUrfXtl0Aab_yN5n4xLXQqzDa45tn65hdmhmAz6Bs7E-Nor8uL0-4nWJZcvfJDSR9t9KBqE21PI-bTtdU2Wd6DchCH5VCik9sK1Hv2xpOfQ"/></div><span class="font-medium text-gray-200">بلد (Balad)</span></div><i class="fa-solid fa-location-arrow text-xs text-gray-500 group-hover:text-gold"></i></button></div></div></div>
+<!-- END: Map Modal -->
+<!-- BEGIN: Scanner Modal -->
+<div class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/90 backdrop-blur-md" id="scanner-modal">
+<div class="relative w-full h-full flex flex-col items-center justify-center">
+<!-- Close Button -->
+<button class="absolute top-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-gray-800/80 border border-gray-600 text-white z-20" onclick="document.getElementById('scanner-modal').classList.add('hidden')">
+<i class="fa-solid fa-xmark text-2xl"></i>
+</button>
+<!-- Scanner Frame -->
+<div class="relative w-72 h-72 border-2 border-gold/50 rounded-3xl overflow-hidden flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.2)]">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20"></div>
+<!-- Scanning Line -->
+<div class="absolute top-0 left-0 w-full h-1 bg-gold shadow-[0_0_10px_#d4af37] animate-[ping_2s_ease-in-out_infinite]"></div>
+<i class="fa-solid fa-qrcode text-6xl text-gold/30"></i>
+<!-- Corner Accents -->
+<div class="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-gold rounded-tl-3xl"></div>
+<div class="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-gold rounded-tr-3xl"></div>
+<div class="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-gold rounded-bl-3xl"></div>
+<div class="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-gold rounded-br-3xl"></div>
+</div>
+<p class="mt-8 text-lg font-medium text-gray-300 animate-pulse">کد QR روی بسته را در کادر قرار دهید</p>
+</div>
+</div>
+<!-- END: Scanner Modal -->
+<script>
+    // Simple drag simulation for the map
+    const mapLayer = document.getElementById('map-layer');
+    const mapContainer = document.getElementById('map-container');
+    let isDragging = false;
+    let startX, startY;
+    let translateX = 0, translateY = 0;
+
+    mapContainer.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.clientX - translateX;
+        startY = e.clientY - translateY;
+    });
+
+    window.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        translateX = e.clientX - startX;
+        translateY = e.clientY - startY;
+        
+        // Limit pan
+        translateX = Math.max(-50, Math.min(50, translateX));
+        translateY = Math.max(-50, Math.min(50, translateY));
+        
+        mapLayer.style.transform = `scale(1.25) translate(${translateX}px, ${translateY}px)`;
+    });
+    
+    // Touch support
+    mapContainer.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        startX = e.touches[0].clientX - translateX;
+        startY = e.touches[0].clientY - translateY;
+    }, {passive: true});
+    
+    window.addEventListener('touchend', () => {
+        isDragging = false;
+    });
+    
+    window.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        translateX = e.touches[0].clientX - startX;
+        translateY = e.touches[0].clientY - startY;
+        
+        translateX = Math.max(-50, Math.min(50, translateX));
+        translateY = Math.max(-50, Math.min(50, translateY));
+        
+        mapLayer.style.transform = `scale(1.25) translate(${translateX}px, ${translateY}px)`;
+    }, {passive: true});
+</script>
+</body></html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Overview &amp; Statistics Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#574500",
+                        "surface-dim": "#131313",
+                        "on-primary-fixed": "#241a00",
+                        "on-secondary-container": "#b5b5b5",
+                        "error-container": "#93000a",
+                        "surface": "#131313",
+                        "outline-variant": "#4d4635",
+                        "on-tertiary": "#303030",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "success-gold": "#C5A028",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "background": "#131313",
+                        "surface-elevation-2": "#1E1E1E",
+                        "on-surface-variant": "#d0c5af",
+                        "outline": "#99907c",
+                        "inverse-primary": "#735c00",
+                        "error": "#ffb4ab",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-container": "#554300",
+                        "surface-container": "#1f1f1f",
+                        "secondary-fixed": "#e3e2e2",
+                        "on-secondary-fixed-variant": "#464747",
+                        "secondary": "#c7c6c6",
+                        "error-red": "#FF4444",
+                        "surface-elevation-1": "#121212",
+                        "primary": "#f2ca50",
+                        "surface-bright": "#393939",
+                        "tertiary-container": "#b4b2b2",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-background": "#e2e2e2",
+                        "surface-variant": "#353535",
+                        "primary-container": "#d4af37",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "on-primary": "#3c2f00",
+                        "surface-container-low": "#1b1b1b",
+                        "on-surface": "#e2e2e2",
+                        "on-tertiary-container": "#454545",
+                        "surface-tint": "#e9c349",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "surface-container-high": "#2a2a2a",
+                        "tertiary-fixed": "#e4e2e1",
+                        "surface-container-lowest": "#0e0e0e",
+                        "secondary-container": "#464747",
+                        "primary-fixed": "#ffe088",
+                        "inverse-on-surface": "#303030",
+                        "on-error": "#690005",
+                        "surface-container-highest": "#353535",
+                        "inverse-surface": "#e2e2e2",
+                        "high-contrast-text": "#FFFFFF",
+                        "on-secondary": "#303031",
+                        "tertiary": "#d0cdcd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "xs": "8px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "base": "4px",
+                        "sm": "12px",
+                        "gutter": "16px",
+                        "xl": "32px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "label-md": ["JetBrains Mono"],
+                        "body-lg": ["Work Sans"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Work Sans"],
+                        "label-sm": ["JetBrains Mono"],
+                        "body-sm": ["Work Sans"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "headline-sm": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Work+Sans:wght@400;500&display=swap');
+        body { background-color: #131313; }
+        .ambient-glow { box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
+        .rtl-content { direction: rtl; }
+        .ltr-content { direction: ltr; }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex">
+<!-- Navigation Drawer -->
+<nav class="bg-surface-container-low dark:bg-surface-container-low text-primary dark:text-primary font-label-md text-label-md h-screen w-64 fixed left-0 top-0 border-r border-surface-variant flex flex-col h-full py-xl z-50 transition-all duration-200 ease-in-out">
+<!-- Drawer Header -->
+<div class="px-md mb-xl left_align">
+<div class="flex items-center gap-sm mb-md">
+<div class="w-12 h-12 rounded-full bg-surface-variant overflow-hidden border border-surface-variant">
+<img alt="Admin Avatar" class="w-full h-full object-cover" data-alt="A highly detailed close-up portrait of a professional corporate administrator in a dark, minimalist setting with subtle gold lighting accents. Institutional authority aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATVVZOulXo1fwq2S3RDrClCVIndeCIfPcU5XQHcaYQ5o0SexHcOD4S4GWWXBjWlk5vePaW7-lTTJn1LqP_p0B7xgV8uaHZT27In7kjt0fU4t4BYI2-egLOeFSvyrkrxHVkcLYBdESUKaDi0Ec9sTRQX2j2TcBnZtRmwImkFMwnpxQfWZt-TUIsl8qz2SVU7zBPgjuYhLUCg8gwCoIWzYc1N0bRtk258X7l3ZBZFXtsUCrRXG-uChV7Mw"/>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface">Operations Lead</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Institutional Access</div>
+</div>
+</div>
+<div class="font-label-sm text-label-sm text-primary-container px-sm py-base bg-surface-elevation-2 inline-block rounded-DEFAULT border border-outline-variant">
+                Security Level 4
+            </div>
+</div>
+<!-- Tabs -->
+<ul class="flex flex-col gap-xs px-xs">
+<!-- Active: Overview -->
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT bg-secondary-container text-primary border-r-2 border-primary transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+                    Overview
+                </a>
+</li>
+<!-- Inactive: Users -->
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">group</span>
+                    Users
+                </a>
+</li>
+<!-- Inactive: Packages -->
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">package_2</span>
+                    Packages
+                </a>
+</li>
+<!-- Inactive: Financials -->
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">payments</span>
+                    Financials
+                </a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 ml-64 flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-background text-primary dark:text-primary font-headline-md text-headline-md w-full top-0 sticky border-b border-surface-variant flex items-center justify-between px-margin-desktop h-20 w-full z-40">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary hover:text-primary transition-colors cursor-pointer active:opacity-80">grid_view</span>
+<img alt="NDN Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCT5mP7zVC1ekjCZfex1JSenV285IuO2P3ohx2kpAyhT7rb8JjqzAlXISZ-mc-umVQUo7t6g7lLAhiTRjVoD8NOoTgeeC3vOtCk369WEoP4Q731JzGpmFxhLiygHyWnqFWtEGBcDXErU0gmpZqU9ilwH4TVa_IQ0R1D7M9wIcQM2HZMAOBJ8rNFa1K082LaAZ54r_9UPJJxeochBku2Ptopn033oSxBngzAxPtQ_C0Qh03x1g6c2ixybQPeBDxR3RPn-0"/>
+<h1 class="font-display-lg text-display-lg text-primary uppercase tracking-tighter">NDN ADMIN</h1>
+</div>
+<div class="flex items-center gap-md">
+<button class="font-label-md text-label-md bg-transparent border border-primary text-primary px-lg py-xs rounded-DEFAULT hover:bg-primary-container hover:text-on-primary-container transition-colors cursor-pointer active:opacity-80 flex items-center gap-xs">
+                    EXPORT
+                    <span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</div>
+</header>
+<!-- Dashboard Canvas (Farsi RTL Content) -->
+<main class="flex-1 p-margin-desktop rtl-content">
+<div class="flex flex-col gap-xl">
+<!-- Header / Title -->
+<div class="flex justify-between items-end border-b border-surface-variant pb-md">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-xs">داشبورد نظارت کلان</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">نمای کلی سیستم و وضعیت سلامت شبکه در لحظه.</p>
+</div>
+<div class="font-label-md text-label-md text-primary-container bg-surface-elevation-2 px-md py-xs rounded-DEFAULT border border-surface-variant flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                        بروزرسانی زنده
+                    </div>
+</div>
+<!-- KPI Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md">
+<!-- KPI 1 -->
+<div class="bg-surface-elevation-1 border border-surface-variant rounded-lg p-lg relative overflow-hidden group">
+<div class="absolute right-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="flex justify-between items-start mb-lg">
+<h3 class="font-label-md text-label-md text-on-surface-variant">درآمد کل سیستم</h3>
+<span class="material-symbols-outlined text-primary-container">account_balance</span>
+</div>
+<div class="font-display-lg text-display-lg text-primary-container ltr-content text-left mb-xs">$12,450,000</div>
+<div class="font-label-sm text-label-sm text-success-gold flex items-center gap-base">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +14.2% در ماه
+                        </div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-elevation-1 border border-surface-variant rounded-lg p-lg">
+<div class="flex justify-between items-start mb-lg">
+<h3 class="font-label-md text-label-md text-on-surface-variant">کل کاربران فعال</h3>
+<span class="material-symbols-outlined text-on-surface-variant">group</span>
+</div>
+<div class="font-display-lg text-display-lg text-on-surface ltr-content text-left mb-xs">84,201</div>
+<div class="font-label-sm text-label-sm text-success-gold flex items-center gap-base">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +5.1% در ماه
+                        </div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-elevation-1 border border-surface-variant rounded-lg p-lg">
+<div class="flex justify-between items-start mb-lg">
+<h3 class="font-label-md text-label-md text-on-surface-variant">کل تحویل‌ها (امروز)</h3>
+<span class="material-symbols-outlined text-on-surface-variant">local_shipping</span>
+</div>
+<div class="font-display-lg text-display-lg text-on-surface ltr-content text-left mb-xs">3,892</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-base">
+<span class="material-symbols-outlined text-[14px]">sync</span> در حال پردازش: 412
+                        </div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-elevation-1 border border-surface-variant rounded-lg p-lg">
+<div class="flex justify-between items-start mb-lg">
+<h3 class="font-label-md text-label-md text-on-surface-variant">بهره‌وری شبکه</h3>
+<span class="material-symbols-outlined text-on-surface-variant">speed</span>
+</div>
+<div class="font-display-lg text-display-lg text-on-surface ltr-content text-left mb-xs">98.7%</div>
+<div class="w-full bg-surface-variant h-1 mt-md rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[98.7%]"></div>
+</div>
+</div>
+</div>
+<!-- Charts Section (Glassmorphism / Tonal Layers) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-md">
+<!-- Line Chart Placeholder (Growth) -->
+<div class="lg:col-span-2 bg-surface-elevation-1 border border-surface-variant rounded-lg p-lg">
+<div class="flex justify-between items-center mb-lg border-b border-surface-variant pb-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">رشد سیستم (۳۰ روز گذشته)</h3>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">more_vert</button>
+</div>
+<div class="h-64 w-full relative flex items-end gap-sm pt-xl">
+<!-- Abstract Representation of Chart using flex -->
+<div class="w-full h-full flex items-end justify-between gap-1 opacity-80">
+<div class="w-full bg-surface-variant h-[20%] hover:bg-primary transition-all"></div>
+<div class="w-full bg-surface-variant h-[35%] hover:bg-primary transition-all"></div>
+<div class="w-full bg-surface-variant h-[30%] hover:bg-primary transition-all"></div>
+<div class="w-full bg-surface-variant h-[50%] hover:bg-primary transition-all"></div>
+<div class="w-full bg-surface-variant h-[45%] hover:bg-primary transition-all"></div>
+<div class="w-full bg-surface-variant h-[60%] hover:bg-primary transition-all"></div>
+<div class="w-full bg-surface-variant h-[55%] hover:bg-primary transition-all"></div>
+<div class="w-full bg-surface-variant h-[75%] hover:bg-primary transition-all"></div>
+<div class="w-full bg-surface-variant h-[85%] hover:bg-primary transition-all"></div>
+<div class="w-full bg-primary h-[90%] ambient-glow relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-primary font-label-sm ltr-content">Max</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bar Chart / Status List (Regional) -->
+<div class="bg-surface-elevation-1 border border-surface-variant rounded-lg p-lg flex flex-col">
+<div class="flex justify-between items-center mb-lg border-b border-surface-variant pb-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">عملکرد منطقه‌ای</h3>
+</div>
+<div class="flex flex-col gap-md flex-1">
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between font-label-sm text-on-surface">
+<span>هاب شمال</span>
+<span class="ltr-content">42%</span>
+</div>
+<div class="w-full bg-surface-variant h-2 rounded-full"><div class="bg-primary-container h-full w-[42%] rounded-full"></div></div>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between font-label-sm text-on-surface">
+<span>هاب جنوب</span>
+<span class="ltr-content">28%</span>
+</div>
+<div class="w-full bg-surface-variant h-2 rounded-full"><div class="bg-on-surface-variant h-full w-[28%] rounded-full"></div></div>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between font-label-sm text-on-surface">
+<span>هاب شرق</span>
+<span class="ltr-content">15%</span>
+</div>
+<div class="w-full bg-surface-variant h-2 rounded-full"><div class="bg-on-surface-variant h-full w-[15%] rounded-full"></div></div>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between font-label-sm text-on-surface">
+<span>هاب غرب</span>
+<span class="ltr-content">15%</span>
+</div>
+<div class="w-full bg-surface-variant h-2 rounded-full"><div class="bg-on-surface-variant h-full w-[15%] rounded-full"></div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- System Health Monitoring Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Server Status -->
+<div class="bg-surface-elevation-1 border border-surface-variant rounded-lg p-lg">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-lg">وضعیت سرور</h3>
+<div class="flex flex-col gap-sm">
+<div class="flex items-center justify-between p-sm border border-surface-variant rounded-DEFAULT bg-background">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-success-gold">dns</span>
+<span class="font-label-md text-on-surface">Main Database (DB-01)</span>
+</div>
+<span class="font-label-sm text-success-gold">ONLINE</span>
+</div>
+<div class="flex items-center justify-between p-sm border border-surface-variant rounded-DEFAULT bg-background">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-success-gold">api</span>
+<span class="font-label-md text-on-surface">Routing API (Node-A)</span>
+</div>
+<span class="font-label-sm text-success-gold">ONLINE</span>
+</div>
+<div class="flex items-center justify-between p-sm border border-outline-variant rounded-DEFAULT bg-surface-elevation-2">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary-container">cloud_sync</span>
+<span class="font-label-md text-on-surface">Backup Server (BKP-02)</span>
+</div>
+<span class="font-label-sm text-primary-container animate-pulse">SYNCING</span>
+</div>
+</div>
+</div>
+<!-- Active Couriers Map / List -->
+<div class="bg-surface-elevation-1 border border-surface-variant rounded-lg p-lg relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none" data-alt="A highly detailed, ultra-minimalist dark mode map projection of a sprawling metropolitan network with glowing gold nodes and interconnected transit lines. High-contrast cyber-logistics aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJDWnaZKuks7CvAfJ4M9pv2YAjsp4-HYQ3nNN7uKWKPxvKBEqn41iuRBgSAZxVZ6MpTVFfyR3h0kWzOcc_qDQ32IbQImXLc15YVrbSesivzC4AkWjEmTapHCsjLwrzxAduHNiPYnQj7zkK7QUvqa5rLAFUxXbdMElZT2vyrKb6krl-3Vw7ligmsEPB0rqMo-fNIiPf6DWPUrIKllOC_a5vQyI2d-S6nxdhV4TlM-sr3bMonluwrDtpLw')"></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-lg relative z-10">پیک‌های آنلاین PUDO</h3>
+<div class="relative z-10 flex flex-col gap-sm">
+<div class="flex justify-between items-center bg-background border border-surface-variant p-md rounded-DEFAULT">
+<div class="flex flex-col">
+<span class="font-label-md text-on-surface">تهران - منطقه ۱</span>
+<span class="font-label-sm text-on-surface-variant mt-base">۱۴۲ پیک فعال</span>
+</div>
+<div class="w-10 h-10 rounded-full border border-primary flex items-center justify-center bg-surface-elevation-2 ambient-glow">
+<span class="material-symbols-outlined text-primary text-[20px]">two_wheeler</span>
+</div>
+</div>
+<div class="flex justify-between items-center bg-background border border-surface-variant p-md rounded-DEFAULT">
+<div class="flex flex-col">
+<span class="font-label-md text-on-surface">تهران - منطقه ۲</span>
+<span class="font-label-sm text-on-surface-variant mt-base">۸۹ پیک فعال</span>
+</div>
+<div class="w-10 h-10 rounded-full border border-surface-variant flex items-center justify-center bg-surface-elevation-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">two_wheeler</span>
+</div>
+</div>
+</div>
+<button class="mt-md w-full bg-surface-variant hover:bg-surface-bright text-on-surface font-label-md py-sm rounded-DEFAULT transition-colors relative z-10">
+                            مشاهده نقشه زنده
+                        </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-background dark:bg-background text-secondary dark:text-secondary font-label-sm text-label-sm w-full py-md border-t border-surface-variant flat flex flex-row justify-between items-center px-margin-desktop w-full mt-auto">
+<div class="opacity-100">© 2024 NDN GLOBAL LOGISTICS. ALL RIGHTS RESERVED.</div>
+<div class="flex gap-md">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Security Protocol</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Support</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">System Status</a>
+</div>
+</footer>
+</div>
+</body></html>

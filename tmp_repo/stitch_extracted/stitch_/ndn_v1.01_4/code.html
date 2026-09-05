@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>راهنمای مشتریان - NDN</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Work+Sans:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#2a2a2a",
+                        "outline-variant": "#4d4635",
+                        "on-surface-variant": "#d0c5af",
+                        "outline": "#99907c",
+                        "surface-bright": "#393939",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-primary-fixed": "#241a00",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-error": "#690005",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "surface-dim": "#131313",
+                        "tertiary": "#d0cdcd",
+                        "on-secondary": "#303031",
+                        "high-contrast-text": "#FFFFFF",
+                        "secondary-container": "#464747",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "on-tertiary": "#303030",
+                        "primary": "#f2ca50",
+                        "primary-fixed-dim": "#e9c349",
+                        "surface-container": "#1f1f1f",
+                        "inverse-surface": "#e2e2e2",
+                        "on-secondary-container": "#b5b5b5",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-background": "#e2e2e2",
+                        "secondary-fixed": "#e3e2e2",
+                        "tertiary-fixed": "#e4e2e1",
+                        "on-tertiary-container": "#454545",
+                        "surface-container-highest": "#353535",
+                        "on-surface": "#e2e2e2",
+                        "error": "#ffb4ab",
+                        "secondary": "#c7c6c6",
+                        "error-red": "#FF4444",
+                        "primary-fixed": "#ffe088",
+                        "surface-elevation-2": "#1E1E1E",
+                        "surface": "#131313",
+                        "inverse-primary": "#735c00",
+                        "background": "#131313",
+                        "surface-tint": "#e9c349",
+                        "on-primary": "#3c2f00",
+                        "on-primary-container": "#554300",
+                        "tertiary-container": "#b4b2b2",
+                        "surface-elevation-1": "#121212",
+                        "primary-container": "#d4af37",
+                        "surface-container-low": "#1b1b1b",
+                        "inverse-on-surface": "#303030",
+                        "success-gold": "#C5A028",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "error-container": "#93000a",
+                        "surface-variant": "#353535"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "lg": "24px",
+                        "margin-desktop": "40px",
+                        "sm": "12px",
+                        "xs": "8px",
+                        "xl": "32px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "body-sm": ["Work Sans"],
+                        "body-md": ["Work Sans"],
+                        "body-lg": ["Work Sans"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "label-md": ["JetBrains Mono"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "headline-sm": ["Be Vietnam Pro"],
+                        "label-sm": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .gold-glow {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-surface border-b border-outline-variant flex items-center px-margin-mobile h-16">
+<button class="text-primary hover:bg-surface-variant/50 p-2 rounded-full transition-colors duration-200 ml-4">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm-mobile text-on-surface">راهنمای مشتریان</h1>
+</header>
+<main class="max-w-4xl mx-auto px-margin-mobile pt-lg md:pt-margin-desktop">
+<!-- Header Section -->
+<div class="text-center mb-xl">
+<img alt="NDN Logo" class="mx-auto w-32 h-auto mb-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBq2lHA1iIjHTQNi848edH44gEuR0dWOV9wi7G3Sc6pPili1uFjZCxjnQ9GJ9NWDYe2Pqw0xXAOa6eip4QCcTRQ81lTAtx6Ai7KzgSkssCsQ7re7EZuaCD5zJ-CYfpB8y0n2S0I0Gq4vLQxIUfbzRNI_kyDCpdvbE65ejwraG0y2kshol16e3i3Ce_kQoqiFTYf-jQtFIP3GDTaKKszNXQEA6Pjt7_N6h0Xr10TlCN6BGFZbyU79eHuNhxztdaYy_iMAPI"/>
+<h2 class="font-display-lg text-display-lg text-primary mb-md">راهنمای استفاده از سامانه NDN</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">
+                فرآیند ارسال و دریافت بسته در شبکه NDN با تمرکز بر امنیت، سرعت و شفافیت طراحی شده است.
+            </p>
+</div>
+<!-- Guide Steps (Bento Grid) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-xl">
+<!-- Step 1 -->
+<div class="bg-surface-elevation-1 border border-outline-variant rounded-xl p-lg relative overflow-hidden group">
+<div class="absolute right-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="mb-md">
+<span class="material-symbols-outlined text-4xl text-primary mb-sm block" data-icon="qr_code_scanner" data-weight="fill" style="font-variation-settings: 'FILL' 1;">qr_code_scanner</span>
+<h3 class="font-headline-sm text-headline-sm text-high-contrast-text">ثبت بسته (مرحله ۱)</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">• ثبت با شماره مرسوله: وارد کردن شماره مرسوله دریافتی از شرکت در اپلیکیشن.<br/>• احراز مامور: انتخاب و تایید مامور اختصاص یافته جهت شروع فرآیند NDN.</p>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-elevation-1 border border-outline-variant rounded-xl p-lg relative overflow-hidden group">
+<div class="absolute right-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="mb-md">
+<span class="material-symbols-outlined text-4xl text-primary mb-sm block" data-icon="location_on" data-weight="fill" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<h3 class="font-headline-sm text-headline-sm text-high-contrast-text">پیگیری لحظه‌ای (مرحله ۲)</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    مشاهده مکان بسته روی نقشه و زمان باقیمانده.
+                </p>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-elevation-1 border border-outline-variant rounded-xl p-lg relative overflow-hidden group">
+<div class="absolute right-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="mb-md">
+<span class="material-symbols-outlined text-4xl text-primary mb-sm block" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<h3 class="font-headline-sm text-headline-sm text-high-contrast-text">تحویل و پرداخت (مرحله ۳)</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    اسکن نهایی، پرداخت هزینه و تحویل بسته.
+                </p>
+</div>
+</div>
+<!-- Technical Diagram -->
+<div class="bg-surface-elevation-1 border border-outline-variant rounded-xl p-lg mb-xl">
+<h3 class="font-headline-md text-headline-md text-high-contrast-text mb-md">ساختار شبکه NDN</h3>
+<div class="aspect-[1.79] w-full rounded-lg overflow-hidden border border-outline-variant">
+<img alt="NDN Architecture Diagram" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrT0a0MDjrJ91ESxaZ_GGA7GsOLmHWO6gukgkdjQLq7G0_c7KbiXZpfKZmj_YZ3OYVjxgmVke9XT2rLdsJw5SeZ-1-uJOHYWjdSKMqegR9dwohdo5aJoR_vXLWAUC_t0NJGJRhF0fioCY88t-ckVlS0l0TFUjZUCDKE0u6iMr3hAYUVf2__I9_9zkT79htfuk70KTKzSZ4JCClQEF0Aec_F2yxYyVSyBJjImd5DG7VrgH-iskHgfyILQ"/>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-sm text-center">
+                نمای کلی از تعاملات بین اپلیکیشن مشتری، مامور، هاب محله و پنل مدیریت مرکزی.
+            </p>
+</div>
+<!-- Contact Support -->
+<div class="flex justify-center mt-xl">
+<button class="bg-primary-container text-black font-headline-sm text-headline-sm px-xl py-sm rounded-lg gold-glow flex items-center gap-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+                تماس با پشتیبانی
+            </button>
+</div>
+</main>
+</body></html>

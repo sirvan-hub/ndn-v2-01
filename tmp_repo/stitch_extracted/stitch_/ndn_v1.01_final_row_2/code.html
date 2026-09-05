@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>مدیریت کاربران و سطوح دسترسی ادمین - NDN</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&amp;family=Be+Vietnam+Pro:wght@600;700&amp;family=Work+Sans:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline": "#99907c",
+                        "tertiary": "#d0cdcd",
+                        "background": "#131313",
+                        "primary-fixed": "#ffe088",
+                        "on-secondary-container": "#b5b5b5",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "on-secondary": "#303031",
+                        "on-primary": "#3c2f00",
+                        "success-gold": "#C5A028",
+                        "on-surface-variant": "#d0c5af",
+                        "secondary-fixed": "#e3e2e2",
+                        "tertiary-fixed": "#e4e2e1",
+                        "high-contrast-text": "#FFFFFF",
+                        "tertiary-container": "#b4b2b2",
+                        "on-surface": "#e2e2e2",
+                        "secondary-container": "#464747",
+                        "on-error": "#690005",
+                        "on-tertiary": "#303030",
+                        "error-container": "#93000a",
+                        "surface-tint": "#e9c349",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#241a00",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "error": "#ffb4ab",
+                        "inverse-surface": "#e2e2e2",
+                        "error-red": "#FF4444",
+                        "surface-elevation-2": "#1E1E1E",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "on-primary-container": "#554300",
+                        "inverse-on-surface": "#303030",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "surface-dim": "#131313",
+                        "on-tertiary-container": "#454545",
+                        "surface-bright": "#393939",
+                        "inverse-primary": "#735c00",
+                        "surface": "#131313",
+                        "on-primary-fixed-variant": "#574500",
+                        "surface-container": "#1f1f1f",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container-highest": "#353535",
+                        "surface-elevation-1": "#121212",
+                        "surface-container-low": "#1b1b1b",
+                        "primary-container": "#d4af37",
+                        "primary": "#f2ca50",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-background": "#e2e2e2",
+                        "secondary": "#c7c6c6",
+                        "surface-container-high": "#2a2a2a",
+                        "outline-variant": "#4d4635",
+                        "surface-variant": "#353535"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        full: "0.75rem"
+                    },
+                    spacing: {
+                        xs: "8px",
+                        "margin-mobile": "16px",
+                        sm: "12px",
+                        xl: "32px",
+                        md: "16px",
+                        base: "4px",
+                        "margin-desktop": "40px",
+                        gutter: "16px",
+                        lg: "24px"
+                    },
+                    fontFamily: {
+                        "body-sm": ["Work Sans"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "body-lg": ["Work Sans"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "body-md": ["Work Sans"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-sm": ["Be Vietnam Pro"],
+                        "label-md": ["JetBrains Mono"]
+                    },
+                    fontSize: {
+                        "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "display-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "700" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "label-sm": ["12px", { lineHeight: "14px", letterSpacing: "0.05em", fontWeight: "500" }],
+                        "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "label-md": ["14px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Work Sans', sans-serif; }
+        .font-jetbrains { font-family: 'JetBrains Mono', monospace; }
+        .border-level-1 { border: 1px solid #333333; }
+        .glow-gold { box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
+        .gold-strip { border-right: 4px solid #D4AF37; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col md:flex-row font-body-md overflow-x-hidden">
+<!-- NavigationDrawer (Web) -->
+<aside class="hidden md:flex flex-col h-screen w-72 right-0 top-0 fixed bg-surface-container-low dark:bg-surface-container-low border-l border-outline-variant py-lg px-md z-40">
+<div class="flex items-center gap-4 mb-xl">
+<img alt="NDN Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyYKKlds6Vm6VoAwWhN2ApMGmxjnjeEENhBx4ITnNVvTVO1RoszK8ofr5a76d8h-ehd9OVzycA-kUEqYcpKiSZVet1sddpXHoaIYpvVXDH6wex6Tlk0mdybbXWmrAge8O_Gv-2HERxNfG1XT02yMCQ6J-KxvpLBmt1ZN0cQm62dgX-4TT-YVKuXmTdLhO3YuV3pshkzUreXDwuRscHayDbUHM0TWufaAvuuViBuihOcP2cUCLnTkrrDA_abh-1UzUKGks"/>
+<div class="font-display-lg text-display-lg text-primary tracking-tight">NDN ADMIN</div>
+</div>
+<div class="flex items-center gap-4 mb-xl p-4 bg-surface rounded-lg border-level-1">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="A professional headshot of a system administrator in a dark, high-tech control room setting. The lighting is cinematic, with soft white rim light and deep shadows, conveying authority and security. The aesthetic aligns with a premium, secure logistics platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH72OM2Dgops249O-S35F2fMwN8cnoZ0VjeTxWK6tvS-HVZIFu52Ur1e9PhJ8j0-KcvxpGPKfgjYi4RYY_EvQoDIx5-_5zyCYsgTlZCl-sl4mYQbPhUL5JLDdfD9QVr9Cu4DwnZ3S3dTAKV5J5gOhnT5cvyTDHNFw9GLTg82EA4W1oHlWOB2vR69MZgysud_rK4hB0i7yFD05lMj2jD8D9MhEUcBqwO8pg3OxR7IhPc4vgHpX-xldUxg"/>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-background">System Controller</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Super Admin Access</div>
+<div class="font-label-sm text-label-sm text-primary mt-1 font-jetbrains">V2.4.0</div>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-2">
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg bg-secondary-container text-on-secondary-container border-r-2 border-primary duration-200 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">group</span>
+                Users
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-200 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+                Roles
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-200 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">assignment</span>
+                Audit Logs
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-200 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">hub</span>
+                Network
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-200 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">lock</span>
+                Security
+            </a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:mr-72 pb-24 md:pb-0 flex flex-col min-h-screen">
+<!-- TopAppBar (Mobile & Web Context Header) -->
+<header class="w-full top-0 sticky bg-surface dark:bg-surface border-b border-outline-variant flex justify-between items-center px-margin-mobile md:px-margin-desktop py-sm z-30">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-primary cursor-pointer active:opacity-80">security</span>
+<h1 class="font-headline-sm text-headline-sm text-primary dark:text-primary font-bold tracking-tight">مدیریت دسترسی‌ها</h1>
+</div>
+<div class="flex items-center gap-4">
+<img alt="NDN Logo" class="h-8 w-auto md:hidden object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF3mNU-YPx_tdMYoelO3sA7_X8MC6_ZYAC4Yez5tXCaOVodz7mUTHPYCpLqbEr_lqxeMN9-uOQtyTJ1oJb6Wi-KRDqIHc6MvvVPfKrCxeV0aQuEcsIShwtxu82kM5jFuTTlIm5R7hOYn4Ng2sDSbov6lGtZzkVQwhd3KELeNmfFN_tZilT5s2UX4pBDfXbHAfO9D-TOEoT69UDn7q_gLa4d8ptoPaDYcMd2-plHICcx6QH5xp8m6Yc2AXWEDWyrQd_Tjc"/>
+<div class="hidden md:flex items-center gap-2 text-on-surface-variant font-label-sm">
+<span>Admin User Profile</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border-level-1 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up minimalist view of a high-tech server interface displaying secure login status in a dark environment with gold accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDscezkLE-kAUnK7s-mi4TCdlh83IXfsw4-Fqpq5MiS9KxVqmYwr5hqa1okwYzKJ9afRw3PV8E7U1RleX_Eq-4zOctSWpTfikrAExIk6d_3Yu2e7bb6D-FjnvQoyosuHk5CpVpl9G-CpTQUK0qZI7xkoJx4ZF5Wzbw9mVk8B-eAvLxJTxXfNVw9_IzsipCt5m0vdzUlZ23jmsRYPtCU7m9esAERtyeZA2ecOhimgnor7l-rAeDaZP_ZA"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex-1 p-margin-mobile md:p-margin-desktop space-y-xl max-w-7xl mx-auto w-full">
+<!-- Top Action Bar -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-elevation-1 border-level-1 rounded-lg py-3 pr-12 pl-4 text-on-background focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors font-jetbrains text-label-md placeholder-on-surface-variant" placeholder="جستجوی نام یا کد کاربری..." type="text"/>
+</div>
+<div class="flex gap-4 w-full md:w-auto">
+<button class="flex-1 md:flex-none bg-surface-elevation-1 border border-primary text-primary px-6 py-3 rounded-lg hover:bg-surface-container-high transition-colors font-label-md text-label-md flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">edit_square</span>
+                        ویرایش دسترسی
+                    </button>
+<button class="flex-1 md:flex-none bg-primary text-on-primary px-6 py-3 rounded-lg hover:bg-surface-tint transition-colors glow-gold font-label-md text-label-md font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person_add</span>
+                        افزودن کاربر جدید
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Users List (Takes up 2 columns on lg) -->
+<div class="lg:col-span-2 space-y-4">
+<h2 class="font-headline-md text-headline-md text-high-contrast-text mb-6 border-b border-surface-container-highest pb-2">کاربران سیستم</h2>
+<!-- Card 1 -->
+<div class="bg-surface-elevation-1 border-level-1 rounded-lg p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 gold-strip hover:bg-surface-elevation-2 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-primary font-headline-sm">ر.ع</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-high-contrast-text">رضا علوی</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-jetbrains mt-1">ID: #NDN-8942</p>
+</div>
+</div>
+<div class="flex items-center gap-6 w-full md:w-auto justify-between md:justify-end">
+<div class="text-right">
+<span class="block font-label-sm text-label-sm text-on-surface-variant mb-1">نقش</span>
+<span class="font-body-md text-body-md text-primary">ادمین کل (Super Admin)</span>
+</div>
+<div class="bg-[#1A2E1A] border border-[#2E5C2E] text-[#4ADE80] px-3 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#4ADE80]"></span>
+                                فعال
+                            </div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-elevation-1 border-level-1 rounded-lg p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:bg-surface-elevation-2 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-on-background font-headline-sm">م.ح</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-high-contrast-text">مریم حسینی</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-jetbrains mt-1">ID: #NDN-7105</p>
+</div>
+</div>
+<div class="flex items-center gap-6 w-full md:w-auto justify-between md:justify-end">
+<div class="text-right">
+<span class="block font-label-sm text-label-sm text-on-surface-variant mb-1">نقش</span>
+<span class="font-body-md text-body-md text-on-background">مدیر عملیات</span>
+</div>
+<div class="bg-[#1A2E1A] border border-[#2E5C2E] text-[#4ADE80] px-3 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#4ADE80]"></span>
+                                فعال
+                            </div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-elevation-1 border-level-1 rounded-lg p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:bg-surface-elevation-2 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-on-background font-headline-sm">ا.م</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-high-contrast-text">امیر محمدی</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-jetbrains mt-1">ID: #NDN-5321</p>
+</div>
+</div>
+<div class="flex items-center gap-6 w-full md:w-auto justify-between md:justify-end">
+<div class="text-right">
+<span class="block font-label-sm text-label-sm text-on-surface-variant mb-1">نقش</span>
+<span class="font-body-md text-body-md text-on-background">پشتیبانی</span>
+</div>
+<div class="bg-[#332A1A] border border-[#5C4A2E] text-[#FBBF24] px-3 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#FBBF24]"></span>
+                                در انتظار تایید
+                            </div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Roles & Actions Sidebar -->
+<div class="space-y-6">
+<!-- Roles Section -->
+<div class="bg-surface-elevation-1 border-level-1 rounded-lg p-6">
+<h2 class="font-headline-sm text-headline-sm text-high-contrast-text mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">admin_panel_settings</span>
+                            تعریف نقش‌ها
+                        </h2>
+<div class="space-y-4">
+<div class="p-3 bg-surface-container-high rounded border-l-2 border-primary">
+<h4 class="font-label-md text-label-md text-primary mb-1">Super Admin</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">دسترسی کامل به تمامی بخش‌های سیستم و مدیریت کاربران.</p>
+</div>
+<div class="p-3 bg-surface-container-high rounded border-l-2 border-outline-variant">
+<h4 class="font-label-md text-label-md text-on-background mb-1">Support</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">دسترسی به پیام‌ها، تیکت‌ها و اطلاعات پایه مشتریان.</p>
+</div>
+<div class="p-3 bg-surface-container-high rounded border-l-2 border-outline-variant">
+<h4 class="font-label-md text-label-md text-on-background mb-1">Auditor</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">دسترسی به لاگ‌های مالی و گزارشات سیستمی (فقط خواندنی).</p>
+</div>
+</div>
+</div>
+<!-- Export Logs -->
+<div class="bg-surface-elevation-1 border-level-1 rounded-lg p-6">
+<h2 class="font-headline-sm text-headline-sm text-high-contrast-text mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">download</span>
+                            خروجی لاگ‌ها
+                        </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">دریافت گزارش کامل فعالیت‌های کاربران سیستم.</p>
+<div class="flex gap-2">
+<button class="flex-1 bg-surface-container-high hover:bg-surface-elevation-2 border-level-1 rounded py-2 flex items-center justify-center gap-2 text-on-background font-label-md transition-colors">
+<span class="material-symbols-outlined text-[#E34F26]">picture_as_pdf</span>
+                                PDF
+                            </button>
+<button class="flex-1 bg-surface-container-high hover:bg-surface-elevation-2 border-level-1 rounded py-2 flex items-center justify-center gap-2 text-on-background font-label-md transition-colors">
+<span class="material-symbols-outlined text-[#1D6F42]">table</span>
+                                Excel
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant shadow-lg flex justify-around items-center px-4 pb-4 pt-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl p-2 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">manage_accounts</span>
+<span class="font-label-sm text-label-sm mt-1 font-bold text-primary">Users</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-sm text-label-sm mt-1">Logs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm text-label-sm mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

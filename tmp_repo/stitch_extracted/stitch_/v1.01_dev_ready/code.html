@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>پنل ورود و انتخاب - نسخه نهایی V1.01 (Dev-Ready)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-elevation-1": "#121212",
+                        "tertiary": "#d0cdcd",
+                        "on-background": "#e2e2e2",
+                        "on-tertiary": "#303030",
+                        "surface-container": "#1f1f1f",
+                        "tertiary-fixed": "#e4e2e1",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "on-secondary": "#303031",
+                        "secondary": "#c7c6c6",
+                        "outline": "#99907c",
+                        "tertiary-container": "#b4b2b2",
+                        "surface-dim": "#131313",
+                        "on-secondary-container": "#b5b5b5",
+                        "primary-container": "#d4af37",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface": "#131313",
+                        "on-primary-fixed": "#241a00",
+                        "primary-fixed": "#ffe088",
+                        "on-surface-variant": "#d0c5af",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "on-error-container": "#ffdad6",
+                        "inverse-surface": "#e2e2e2",
+                        "outline-variant": "#4d4635",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "on-tertiary-container": "#454545",
+                        "on-primary-fixed-variant": "#574500",
+                        "surface-container-highest": "#353535",
+                        "error-red": "#FF4444",
+                        "success-gold": "#C5A028",
+                        "surface-elevation-2": "#1E1E1E",
+                        "error": "#ffb4ab",
+                        "surface-container-lowest": "#0e0e0e",
+                        "high-contrast-text": "#FFFFFF",
+                        "surface-tint": "#e9c349",
+                        "surface-bright": "#393939",
+                        "background": "#131313",
+                        "inverse-on-surface": "#303030",
+                        "error-container": "#93000a",
+                        "on-primary": "#3c2f00",
+                        "surface-container-low": "#1b1b1b",
+                        "inverse-primary": "#735c00",
+                        "on-secondary-fixed-variant": "#464747",
+                        "primary": "#f2ca50",
+                        "on-surface": "#e2e2e2",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-error": "#690005",
+                        "on-primary-container": "#554300",
+                        "secondary-fixed": "#e3e2e2",
+                        "secondary-container": "#464747",
+                        "surface-variant": "#353535"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "md": "16px",
+                        "sm": "12px",
+                        "margin-mobile": "16px",
+                        "lg": "24px",
+                        "xs": "8px",
+                        "xl": "32px",
+                        "margin-desktop": "40px",
+                        "gutter": "16px",
+                        "base": "4px"
+                    },
+                    fontFamily: {
+                        "label-sm": ["JetBrains Mono"],
+                        "body-sm": ["Work Sans"],
+                        "label-md": ["JetBrains Mono"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Work Sans"],
+                        "headline-sm": ["Be Vietnam Pro"],
+                        "body-lg": ["Work Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style data-purpose="custom-fonts">
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col items-center pt-16 px-6 pb-8 bg-background text-on-background">
+<header class="flex flex-col items-center w-full mb-10" data-purpose="header">
+<div class="w-32 h-32 mb-4 rounded-full border border-surface-container-high flex items-center justify-center relative shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+<img alt="NDN Logo" class="w-24 h-24 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2ls_MnLnol27Juua_Q1Iyc5E5nBHnyD3qONj42t-ATSzAFgPTmz9QiSYeMg0e4hTpLXm62s40ZEjaLhIQhcEIl2EQp7bkEhNWYWLezjG-DM_YTkJIFYi2moMIZ9UApBRbaBPEff72ebyjIA4WS-kx6unV2FBOseGQ8A9A1IrWcVOEGQSn4nxfuN3Ghrj_pP2MgBKIWQ8UD5kzq1ZTetW9fTJymN5307Hly3rHzZ2_INN5batYfEHtdKFiyxOeg_Xp6Ao"/>
+<div class="absolute w-[140%] h-[140%] rounded-full border-[0.5px] border-primary-container/30"></div>
+</div>
+<h1 class="text-xl font-bold mb-2 text-on-background">شبکه تحویل مطمئن محله (NDN)</h1>
+<p class="text-on-surface-variant text-sm">درگاه ورود سفیران شبکه</p>
+</header>
+<main class="w-full flex-grow flex flex-col items-center" data-purpose="main-content">
+<section class="w-full mb-8" data-purpose="panel-selection">
+<h2 class="text-center text-sm font-medium mb-4 text-on-background">نوع پنل را انتخاب کنید</h2>
+<div class="flex justify-between gap-2" data-field-id="panel-type-selector">
+<button aria-selected="true" class="flex-1 py-2 px-1 rounded-full border border-primary-container text-primary-container bg-surface-container-lowest text-sm font-medium transition-colors" data-field-id="panel-type-pudo">
+                    سفیر PUDO
+                </button>
+<button aria-selected="false" class="flex-1 py-2 px-1 rounded-full bg-surface-container text-on-surface-variant text-sm font-medium hover:bg-surface-container-high transition-colors" data-field-id="panel-type-hub">
+                    هاب محله
+                </button>
+<button aria-selected="false" class="flex-1 py-2 px-1 rounded-full bg-surface-container text-on-surface-variant text-sm font-medium hover:bg-surface-container-high transition-colors" data-field-id="panel-type-subscriber">
+                    مشترک
+                </button>
+</div>
+</section>
+<form class="w-full flex flex-col gap-4 mb-6" data-field-id="login-form" data-purpose="login-form">
+<div class="relative w-full">
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+<svg class="h-5 w-5 text-on-surface-variant" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<input class="block w-full pl-3 pr-10 py-3 rounded-lg border border-outline-variant bg-transparent text-on-background placeholder-on-surface-variant focus:outline-none focus:ring-1 focus:ring-primary-container focus:border-primary-container transition-colors" data-field-id="input-username" dir="rtl" placeholder="نام کاربری" required="" type="text"/>
+</div>
+<div class="relative w-full">
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+<svg class="h-5 w-5 text-on-surface-variant" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<input class="block w-full pl-10 pr-10 py-3 rounded-lg border border-outline-variant bg-transparent text-on-background placeholder-on-surface-variant focus:outline-none focus:ring-1 focus:ring-primary-container focus:border-primary-container transition-colors" data-field-id="input-password" dir="rtl" placeholder="رمز عبور" required="" type="password"/>
+<button class="absolute inset-y-0 left-0 pl-3 flex items-center cursor-pointer text-on-surface-variant hover:text-on-background" data-field-id="btn-toggle-password" type="button">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+<button class="w-full mt-2 bg-primary hover:bg-primary-container text-on-primary-fixed font-bold py-3 px-4 rounded-lg transition-colors" data-field-id="btn-login-submit" type="submit">
+                ورود
+            </button>
+</form>
+<a class="text-primary-container font-medium mb-10 hover:underline" data-field-id="link-register" href="#">
+            ثبت‌نام کاربر جدید
+        </a>
+<div class="relative flex py-5 items-center w-full mb-8">
+<div class="flex-grow border-t border-outline-variant"></div>
+<span class="flex-shrink-0 mx-4 text-on-surface-variant text-sm">با</span>
+<div class="flex-grow border-t border-outline-variant"></div>
+</div>
+<section class="flex flex-col items-center" data-purpose="biometric-login">
+<button class="w-24 h-24 rounded-full border border-outline-variant bg-surface-container flex items-center justify-center mb-4 hover:border-primary-container transition-colors shadow-[0_0_20px_rgba(212,175,55,0.05)] relative" data-field-id="btn-biometric-login">
+<div class="absolute inset-1 rounded-full border border-outline-variant/50"></div>
+<div class="absolute inset-2 rounded-full bg-surface-container-low"></div>
+<svg class="w-12 h-12 text-primary-container z-10" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.81 4.47c-.08 0-.16-.02-.23-.06C15.66 3.42 14 3 12.01 3c-1.98 0-3.86.47-5.57 1.41-.24.13-.54.04-.68-.2-.13-.24-.04-.55.2-.68C7.82 2.52 9.86 2 12.01 2c2.13 0 3.99.47 6.03 1.52.25.13.34.43.21.67-.09.18-.26.28-.44.28zM3.5 9.72c-.1 0-.2-.03-.29-.09-.23-.16-.28-.47-.12-.7.99-1.4 2.25-2.5 3.75-3.27C9.98 4.04 14 4.03 17.15 5.65c1.5.77 2.76 1.86 3.75 3.25.16.22.11.54-.12.7-.23.16-.54.11-.7-.12-.89-1.24-2.01-2.2-3.35-2.89-2.8-1.43-6.4-1.43-9.45.02-1.33.63-2.45 1.62-3.35 2.89-.11.16-.28.22-.43.22z"></path>
+<path d="M7.16 22c-.06 0-.11-.01-.17-.03-.26-.08-.41-.35-.33-.61.16-.53.33-1.43.33-2.43V14c0-2.76 2.24-5 5-5s5 2.24 5 5v.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5V14c0-2.21-1.79-4-4-4s-4 1.79-4 4v4.93c0 .85-.15 1.58-.29 2.06-.06.22-.26.37-.47.37zM12.01 22c-.28 0-.5-.22-.5-.5v-4.5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v4.5c0 .28-.22.5-.5.5z"></path>
+</svg>
+</button>
+<h3 class="text-lg font-bold mb-1 text-on-background">ورود با اثر انگشت</h3>
+<p class="text-on-surface-variant text-sm">بدون انتخاب نوع پنل</p>
+</section>
+</main>
+<footer class="mt-auto pt-6 w-full" data-purpose="footer">
+<div class="w-32 h-1 bg-surface-container-highest rounded-full mx-auto"></div>
+</footer>
+</body></html>

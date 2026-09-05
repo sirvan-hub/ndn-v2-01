@@ -1,0 +1,29 @@
+{
+  "release_version": "NDN V1.01.1",
+  "app_name": "NDN V1.01.1",
+  "application_id": "com.aistudio.ndnpost.pudo",
+  "build_timestamp": "2026-08-19T02:14:00Z",
+  "stage": "Pre-test Launch Operational",
+  "database": {
+    "sync_target": "Google Drive",
+    "filename": "ndn_database_v101.json",
+    "scopes": [
+      "https://www.googleapis.com/auth/drive.file",
+      "https://www.googleapis.com/auth/drive.appdata"
+    ]
+  },
+  "roles_supported": [
+    "CUSTOMER",
+    "COURIER",
+    "HUB_MANAGER",
+    "ADMIN_PORTAL"
+  ],
+  "hardware_integrations": [
+    "CameraX Barcode/QR Scanner",
+    "Package Condition Camera Capture",
+    "BiometricPrompt Android Fingerprint",
+    "FusedLocationProviderClient GPS",
+    "Telephony Direct Call & SMS",
+    "Balad / Neshan / Waze / Google Maps Navigation"
+  ]
+}
