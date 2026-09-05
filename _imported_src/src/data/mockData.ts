@@ -1,0 +1,202 @@
+import { PackageItem, HubItem, ActivityLog } from '../types';
+
+export const initialHubs: HubItem[] = [
+  {
+    id: 'hub-1',
+    name: 'سوپرمارکت یاران',
+    type: 'supermarket',
+    typeName: 'سوپرمارکت',
+    managerName: 'امید اکبری',
+    phone: '۰۲۱-۴۴۲۳۸۹۱۰',
+    licenseNumber: '۱۲۳۴۵۶۷۸۹۰',
+    address: 'تهران، سعادت آباد، میدان کاج، خیابان سرو شرقی، پلاک ۲۴',
+    rating: 4.8,
+    reviewCount: 120,
+    workingHours: '۰۸:۰۰ - ۲۲:۰۰',
+    isOpen: true,
+    coordinates: { lat: 35.7924, lng: 51.3789 },
+    currentPackagesCount: 12,
+  },
+  {
+    id: 'hub-2',
+    name: 'لوازم‌التحریر دانشمند',
+    type: 'stationery',
+    typeName: 'لوازم‌التحریر',
+    managerName: 'مهرداد صالحی',
+    phone: '۰۲۱-۲۲۱۴۵۶۷۸',
+    licenseNumber: '۹۸۷۶۵۴۳۲۱۰',
+    address: 'تهران، شهرک غرب، بلوار فرحزادی، نرسیده به میدان کتاب، پلاک ۸',
+    rating: 4.6,
+    reviewCount: 85,
+    workingHours: '۰۹:۰۰ - ۲۱:۰۰',
+    isOpen: true,
+    coordinates: { lat: 35.7812, lng: 51.3654 },
+    currentPackagesCount: 7,
+  },
+  {
+    id: 'hub-3',
+    name: 'کافی‌نت دیجیتال پلاس',
+    type: 'netcafe',
+    typeName: 'کافی‌نت',
+    managerName: 'سینا کاظمی',
+    phone: '۰۲۱-۸۸۹۹۲۳۴۱',
+    licenseNumber: '۴۵۶۷۸۹۱۲۳۰',
+    address: 'تهران، بلوار فردوس شرق، خیابان ولیعصر، پلاک ۱۲',
+    rating: 4.9,
+    reviewCount: 142,
+    workingHours: '۰۸:۳۰ - ۲۳:۰۰',
+    isOpen: true,
+    coordinates: { lat: 35.7256, lng: 51.3214 },
+    currentPackagesCount: 15,
+  },
+  {
+    id: 'hub-4',
+    name: 'سوپرمارکت میلاد',
+    type: 'supermarket',
+    typeName: 'سوپرمارکت',
+    managerName: 'میلاد قاسمی',
+    phone: '۰۲۱-۷۷۵۴۱۲۹۰',
+    licenseNumber: '۶۵۴۳۲۱۷۸۹۰',
+    address: 'تهران، خیابان شریعتی، بالاتر از پل رومی، پلاک ۴۲',
+    rating: 4.5,
+    reviewCount: 64,
+    workingHours: '۰۷:۳۰ - ۲۳:۳۰',
+    isOpen: false,
+    coordinates: { lat: 35.7981, lng: 51.4312 },
+    currentPackagesCount: 4,
+  }
+];
+
+export const initialPackages: PackageItem[] = [
+  {
+    id: 'pkg-1',
+    trackingCode: 'TRK-987654321',
+    title: 'کفش ورزشی نایکی',
+    sender: 'دیجی‌کالا',
+    receiver: 'علی رضایی',
+    receiverPhone: '09123456789',
+    hubId: 'hub-1',
+    hubName: 'سوپرمارکت یاران (سعادت‌آباد)',
+    hubAddress: 'تهران، سعادت آباد، میدان کاج، خیابان سرو شرقی، پلاک ۲۴',
+    status: 'at_hub',
+    statusText: 'در هاب محلی',
+    dimensions: '۲۰ × ۳۰ × ۱۵',
+    weight: '۱.۲ کیلوگرم',
+    size: 'medium',
+    lastUpdated: 'همین حالا',
+    baseFee: 25000,
+    tax: 2250,
+    storageFee: 0,
+    totalFee: 27250,
+    isPaid: false,
+    courierId: 'courier-123',
+    courierName: 'محمد جوادی (کد سفیر: ۱۲۳)',
+    history: [
+      { status: 'ثبت در مبدا', timestamp: '۱۰:۳۰ دیروز', description: 'بسته توسط فرستنده دیجی‌کالا تحویل پست شد' },
+      { status: 'انتقال به منطقه', timestamp: '۰۸:۱۵ امروز', description: 'بسته در دست مامور پخش قرار گرفت' },
+      { status: 'تحویل به هاب', timestamp: '۱۱:۴۰ امروز', description: 'بسته با موفقیت در هاب سوپرمارکت یاران تخلیه شد' }
+    ]
+  },
+  {
+    id: 'pkg-2',
+    trackingCode: 'TRK-123456789',
+    title: 'کتاب‌های دانشگاهی',
+    sender: 'شهر کتاب',
+    receiver: 'علی رضایی',
+    receiverPhone: '09123456789',
+    hubId: 'hub-1',
+    hubName: 'سوپرمارکت یاران (سعادت‌آباد)',
+    hubAddress: 'تهران، سعادت آباد، میدان کاج، خیابان سرو شرقی، پلاک ۲۴',
+    status: 'in_transit',
+    statusText: 'در مسیر هاب',
+    dimensions: '۱۰ × ۲۰ × ۵',
+    weight: '۰.۵ کیلوگرم',
+    size: 'small',
+    lastUpdated: '۲ ساعت پیش',
+    baseFee: 18000,
+    tax: 1620,
+    storageFee: 0,
+    totalFee: 19620,
+    isPaid: true,
+    courierId: 'courier-123',
+    courierName: 'محمد جوادی (کد سفیر: ۱۲۳)',
+    history: [
+      { status: 'ثبت در مبدا', timestamp: '۰۹:۰۰ امروز', description: 'بسته توسط فروشگاه شهر کتاب آماده‌سازی شد' },
+      { status: 'در مسیر انتقال', timestamp: '۱۲:۳۰ امروز', description: 'سفیر در حال حمل بسته به هاب محله است' }
+    ]
+  },
+  {
+    id: 'pkg-3',
+    trackingCode: 'IR-1049-X72',
+    title: 'پکیج لوازم الکترونیکی',
+    sender: 'تکنولایف',
+    receiver: 'علی احمدی',
+    receiverPhone: '09351234567',
+    hubId: 'hub-1',
+    hubName: 'سوپرمارکت یاران (سعادت‌آباد)',
+    hubAddress: 'تهران، سعادت آباد، میدان کاج، خیابان سرو شرقی، پلاک ۲۴',
+    status: 'at_hub',
+    statusText: 'در انبار هاب (۲ روز)',
+    dimensions: '۱۵ × ۲۵ × ۱۰',
+    weight: '۲ کیلوگرم',
+    size: 'medium',
+    lastUpdated: 'دیروز',
+    baseFee: 30000,
+    tax: 2700,
+    storageFee: 5000,
+    totalFee: 37700,
+    isPaid: true,
+    history: [
+      { status: 'در هاب', timestamp: '۲ روز پیش', description: 'رسیده به هاب و آماده دریافت مشتری' }
+    ]
+  },
+  {
+    id: 'pkg-4',
+    trackingCode: 'IR-8821-M14',
+    title: 'اسناد و مدارک',
+    sender: 'دفتر اسناد رسمی ۲۱۴',
+    receiver: 'سارا محمدی',
+    receiverPhone: '09197654321',
+    hubId: 'hub-1',
+    hubName: 'سوپرمارکت یاران (سعادت‌آباد)',
+    hubAddress: 'تهران، سعادت آباد، میدان کاج، خیابان سرو شرقی، پلاک ۲۴',
+    status: 'at_hub',
+    statusText: '۵ روز در انبار (نیازمند پیگیری)',
+    dimensions: '۵ × ۳۰ × ۲۰',
+    weight: '۰.۵ کیلوگرم',
+    size: 'small',
+    lastUpdated: '۵ روز پیش',
+    baseFee: 20000,
+    tax: 1800,
+    storageFee: 15000,
+    totalFee: 36800,
+    isPaid: false,
+    history: [
+      { status: 'هشدار ماندگاری', timestamp: '۵ روز پیش', description: 'مدت اقامت بیش از حد مجاز اولیه در هاب' }
+    ]
+  }
+];
+
+export const initialLogs: ActivityLog[] = [
+  {
+    id: 'log-1',
+    text: 'بسته جدید توسط مامور پست ثبت شد - کد: TRK-987654321',
+    timestamp: 'هم‌اکنون',
+    source: 'courier',
+    trackingCode: 'TRK-987654321'
+  },
+  {
+    id: 'log-2',
+    text: 'هاب سوپرمارکت یاران وضعیت تحویل را تایید کرد',
+    timestamp: '۱۵ دقیقه پیش',
+    source: 'hub',
+    trackingCode: 'TRK-987654321'
+  },
+  {
+    id: 'log-3',
+    text: 'پرداخت آنلاین هزینه ارسال برای بسته کتاب‌های دانشگاهی انجام شد',
+    timestamp: '۱ ساعت پیش',
+    source: 'customer',
+    trackingCode: 'TRK-123456789'
+  }
+];
