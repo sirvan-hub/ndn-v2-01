@@ -1,0 +1,6 @@
+{
+  "name": "NDN-V2.01.0",
+  "description": "سامانه پستی محله (NDN-V2.01.0) - نسخه جامع توزیع و دریافت محلی بسته‌ها با پنل‌های اختصاصی مشتری، سفیر PUDO، مدیر هاب، پرتال مدیریت ارشد با پشتیبانی Reza Gh و همگام‌سازی ابری گوگل درایو",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
